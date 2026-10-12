@@ -22,7 +22,7 @@ export const UI = {
   noPlace: { en: "Location not stated", ar: "الموقع غير مذكور" },
   close: { en: "Close", ar: "إغلاق" },
   more: { en: "More", ar: "المزيد" },
-  viewProject: { en: "View project", ar: "عرض المشروع" },
+  viewProject: { en: "View in 3D", ar: "عرض ثلاثي الأبعاد" },
   seeAll: { en: "See in all projects", ar: "اعرضه في كل المشروعات" },
   regionOnly: { en: "Region only", ar: "المنطقة فقط" },
   photo: { en: "Photo", ar: "صورة" },

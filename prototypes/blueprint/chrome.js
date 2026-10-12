@@ -1,5 +1,5 @@
 // Page chrome: sheet borders with zone marks, the Sections menu, the active-section strip at the
-// bottom (section name, and "Built nn%" on featured projects), and in-page link focus.
+// bottom (section name and reading progress), and in-page link focus.
 import { icon } from './icons.js';
 
 const COLS = 8;
@@ -38,10 +38,9 @@ function buildMenu(list, sheets) {
   list.innerHTML = sheets.filter(visible).map((s) => `<li><a href="#${s.id}" data-goto="${s.id}">${icon(s.dataset.icon || 'grid')}${bi(s.dataset.name, s.dataset.nameAr)}</a></li>`).join('');
 }
 
-export function initChrome({ getBuilt }) {
+export function initChrome() {
   const sheets = $$('main > .sheet');
   const tb = Object.fromEntries($$('[data-tb]').map((el) => [el.dataset.tb, el]));
-  const buildCell = $('[data-tb-build]');
 
   decorateZones(sheets);
   let resizeT = 0;
@@ -73,21 +72,14 @@ export function initChrome({ getBuilt }) {
   let active = null;
   const navLinks = $$('.topnav a');
   function navFor(s) {
-    if (s.classList.contains('sheet--project') || s.id === 'p307' || s.id === 's202') return '#p301';
+    if (s.id === 's202') return '#projects';
     if (s.id === 'a102' || s.id === 's201') return '#a101';
     return `#${s.id}`;
-  }
-  function updateBuild() {
-    if (!active) return;
-    const v = getBuilt(active.id);
-    buildCell.hidden = v === undefined;
-    if (v !== undefined) tb.build.textContent = `${Math.round(v)}%`;
   }
   function setActive(s) {
     if (s === active) return;
     active = s;
     flip(tb.title, bi(s.dataset.name, s.dataset.nameAr));
-    updateBuild();
     const shown = sheets.filter(visible);
     if (tb.bar) tb.bar.style.width = `${((shown.indexOf(s) + 1) / shown.length) * 100}%`;
     const ref = navFor(s);
@@ -109,6 +101,4 @@ export function initChrome({ getBuilt }) {
   }
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(spy); } }, { passive: true });
   spy();
-
-  return { refreshBuild: updateBuild };
 }

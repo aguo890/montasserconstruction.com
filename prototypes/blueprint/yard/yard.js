@@ -79,7 +79,7 @@ function paintChrome(root, el) {
 /**
  * Mounts the yard into `rootEl` and returns { goTo, measure, destroy }.
  * onShowSector(key) fires from a sector's "See all n … projects" ('all' from the closing panel).
- * onOpenProject(sectionId) fires from the dossier's "View project" ('p301'…'p306').
+ * onOpenProject(siteId) fires from the dossier's "View in 3D" (a site id from site/sites.js, e.g. 'city-club').
  */
 export function mountYard(rootEl, { onShowSector = noop, onOpenProject = noop } = {}) {
   const root = rootEl;

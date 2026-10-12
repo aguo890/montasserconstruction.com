@@ -15,7 +15,7 @@ export const T = {
   more: { en: 'More', ar: 'المزيد' },
   less: { en: 'Less', ar: 'أقل' },
   record: { en: 'Full record', ar: 'السجل الكامل' },
-  view: { en: 'View project', ar: 'اعرض المشروع' },
+  view: { en: 'View in 3D', ar: 'عرض ثلاثي الأبعاد' },
   close: { en: 'Close', ar: 'إغلاق' },
   photos: { en: 'Photos', ar: 'الصور' },
   scope: { en: 'Scope', ar: 'نطاق الأعمال' },

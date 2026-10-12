@@ -1,5 +1,5 @@
 // The card: a cluster's project list, then a project at a glance (name, owner, place, fact chips) with "More".
-import { SECTION_LINKS } from "./config.js";
+import { SITE_LINKS } from "./config.js";
 import { UI, SECTOR_NAMES, STATUS, FACT_CHIPS, tx } from "./strings.js";
 import { icon } from "./icons.js";
 
@@ -116,8 +116,8 @@ export class Card {
     if (open) return this.showProject(this.projects.get(open.dataset.open), null, true);
     const more = e.target.closest("[data-more]");
     if (more) return this.toggleMore(more);
-    const section = e.target.closest("[data-section]");
-    if (section) return this.handlers.onOpenProject(section.dataset.section);
+    const site = e.target.closest("[data-site]");
+    if (site) return this.handlers.onOpenProject(site.dataset.site);
     const all = e.target.closest("[data-all]");
     if (all) this.handlers.onShowAllProjects(all.dataset.all);
   }
@@ -207,7 +207,7 @@ function photosHtml(p) {
 }
 
 function actionHtml(p) {
-  const section = SECTION_LINKS[p.id] || (p.parent && SECTION_LINKS[p.parent]);
-  if (section) return `<button type="button" class="ms-btn" data-section="${section}">${icon("open")}<span>${esc(tx(UI.viewProject))}</span></button>`;
+  const site = SITE_LINKS[p.id] || (p.parent && SITE_LINKS[p.parent]);
+  if (site) return `<button type="button" class="ms-btn" data-site="${site}">${icon("open")}<span>${esc(tx(UI.viewProject))}</span></button>`;
   return `<button type="button" class="ms-btn ms-btn--ghost" data-all="${p.id}">${icon("list")}<span>${esc(tx(UI.seeAll))}</span></button>`;
 }

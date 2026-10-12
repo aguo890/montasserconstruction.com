@@ -1,18 +1,27 @@
-// Build order, links to the page's featured sections, map extents and base-map lettering.
+// Build order, links to the page's site views, map extents and base-map lettering.
 
 // One build-up step per sector, largest story first.
 export const SECTOR_ORDER = ["water", "sports", "clubs", "industry", "education", "health", "hospitality", "public", "banks"];
 
-// Projects with their own featured section on the page; the City Club branches follow their programme.
-export const SECTION_LINKS = {
-  "city-club": "p301",
-  "matrouh-stadium": "p302",
-  "matrouh-university": "p303",
-  "el-morsi-abu-el-abbas-mosque-square": "p304",
-  "coral-beach-village": "p305",
-  "beyti-almarai-factory": "p306",
-  "faragello-cake-factory": "p306",
-  "aquafac-factory": "p306",
+// Projects with a site view on the page (site/sites.js); the City Club branches follow their programme.
+export const SITE_LINKS = {
+  "city-club": "city-club",
+  "matrouh-stadium": "matrouh-stadium",
+  "matrouh-university": "matrouh-university",
+  "el-morsi-abu-el-abbas-mosque-square": "el-morsi-abu-el-abbas-mosque-square",
+  "coral-beach-village": "coral-beach-village",
+  "beyti-almarai-factory": "factories",
+  "faragello-cake-factory": "factories",
+  "aquafac-factory": "factories",
+  "suez-stadium": "suez-stadium",
+  "aswan-stadium": "aswan-stadium",
+  "el-hadaf-training-center": "el-hadaf-training-center",
+  "tivoli-dome": "tivoli-dome",
+  "movenpick-airport-hotel": "movenpick-airport-hotel",
+  "la-plage-beach": "la-plage-beach",
+  "egyptian-rowing-club": "egyptian-rowing-club",
+  "banque-misr": "banque-misr",
+  "abbassia-mental-health-hospital": "abbassia-mental-health-hospital",
 };
 
 // Projected extents (km) of the relief rasters, from the Atlas build

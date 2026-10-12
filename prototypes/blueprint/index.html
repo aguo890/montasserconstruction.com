@@ -16,8 +16,8 @@
   <link rel="stylesheet" href="atlas/map.css">
   <link rel="stylesheet" href="sheets.css">
   <link rel="stylesheet" href="yard/yard.css">
-  <link rel="stylesheet" href="built.css">
   <link rel="stylesheet" href="cover/cover.css">
+  <link rel="stylesheet" href="site/site.css">
   <script>
     (function () {
       var root = document.documentElement;
@@ -35,7 +35,7 @@
       if (lang === 'ar') document.title = 'منتصر للمقاولات العمومية | التصميم والتنفيذ والتسليم في مصر منذ 1999';
     })();
   </script>
-  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js"}}</script>
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
   <script type="module" src="main.js"></script>
 </head>
 <body>
@@ -47,7 +47,7 @@
     </a>
     <nav class="topnav" aria-label="Main" data-aria-ar="القائمة الرئيسية">
       <a href="#a101"><span class="en">About</span><span class="ar" lang="ar" dir="rtl">من نحن</span></a>
-      <a href="#p301"><span class="en">Projects</span><span class="ar" lang="ar" dir="rtl">المشروعات</span></a>
+      <a href="#projects"><span class="en">Projects</span><span class="ar" lang="ar" dir="rtl">المشروعات</span></a>
       <a href="#map" data-fallback="#r350"><span class="en">Map</span><span class="ar" lang="ar" dir="rtl">الخريطة</span></a>
       <a href="#w401"><span class="en">Water</span><span class="ar" lang="ar" dir="rtl">المياه</span></a>
       <a href="#r350"><span class="en">All projects</span><span class="ar" lang="ar" dir="rtl">كل المشروعات</span></a>
@@ -85,7 +85,7 @@
             </h1>
             <p class="cover__alt"><span class="en" lang="ar" dir="rtl">منتصر للمقاولات العمومية</span><span class="ar" lang="en" dir="ltr">Montaser Group for General Contracting</span></p>
             <div class="cover__cta">
-              <a class="btn" href="#p301"><span class="en">See the projects</span><span class="ar" lang="ar" dir="rtl">شاهد المشروعات</span><span class="btn__arr" aria-hidden="true">→</span></a>
+              <a class="btn" href="#projects"><span class="en">See the projects</span><span class="ar" lang="ar" dir="rtl">شاهد المشروعات</span><span class="btn__arr" aria-hidden="true">→</span></a>
               <a class="btn btn--ghost" href="#c602"><span class="en">Start a project</span><span class="ar" lang="ar" dir="rtl">ابدأ مشروعك</span></a>
             </div>
           </div>
@@ -158,11 +158,11 @@
         <li><a href="#s201"><i data-icon="mep"></i><b class="nums__n"><span class="qty" data-count="100">100</span><i class="nums__u">+</i></b><span class="nums__l"><span class="en">MEP projects</span><span class="ar" lang="ar" dir="rtl">مشروع كهروميكانيكي</span></span></a></li>
         <li><a href="#w401"><i data-icon="water"></i><b class="nums__n"><span class="qty" data-count="15">15</span><i class="nums__u">+</i></b><span class="nums__l"><span class="en">Water plant systems</span><span class="ar" lang="ar" dir="rtl">نظامًا لمحطات المياه</span></span></a></li>
         <li><a href="#s201"><i data-icon="renewable"></i><b class="nums__n"><span class="qty" data-count="20">20</span><i class="nums__u">+</i></b><span class="nums__l"><span class="en">Renewable and recycling systems</span><span class="ar" lang="ar" dir="rtl">نظامًا للطاقة المتجددة وإعادة التدوير</span></span></a></li>
-        <li><a href="#p302"><i data-icon="seats"></i><b class="nums__n"><span class="qty" data-count="26800">26,800</span></b><span class="nums__l"><span class="en">Stadium seats, FIFA standards</span><span class="ar" lang="ar" dir="rtl">مقعد بمعايير الفيفا</span></span></a></li>
-        <li><a href="#p301"><i data-icon="clubs"></i><b class="nums__n"><span class="qty" data-count="10">10</span><i class="nums__u">+</i><span class="qty" data-count="5">5</span></b><span class="nums__l"><span class="en">City Clubs done + underway</span><span class="ar" lang="ar" dir="rtl">نادٍ مكتمل + قيد التنفيذ</span></span></a></li>
+        <li><a href="#site/matrouh-stadium" data-site="matrouh-stadium"><i data-icon="seats"></i><b class="nums__n"><span class="qty" data-count="26800">26,800</span></b><span class="nums__l"><span class="en">Stadium seats, FIFA standards</span><span class="ar" lang="ar" dir="rtl">مقعد بمعايير الفيفا</span></span></a></li>
+        <li><a href="#site/city-club" data-site="city-club"><i data-icon="clubs"></i><b class="nums__n"><span class="qty" data-count="10">10</span><i class="nums__u">+</i><span class="qty" data-count="5">5</span></b><span class="nums__l"><span class="en">City Clubs done + underway</span><span class="ar" lang="ar" dir="rtl">نادٍ مكتمل + قيد التنفيذ</span></span></a></li>
         <li><a href="#w401"><i data-icon="water"></i><b class="nums__n"><span class="qty" data-count="3000">3,000</span></b><span class="nums__l"><span class="en">m³/day, largest plant</span><span class="ar" lang="ar" dir="rtl">م³/يوم، أكبر محطة</span></span></a></li>
-        <li><a href="#p305"><i data-icon="rock"></i><b class="nums__n"><span class="qty" data-count="25000">25,000</span></b><span class="nums__l"><span class="en">m³ rock removed underwater</span><span class="ar" lang="ar" dir="rtl">م³ صخور أُزيلت تحت الماء</span></span></a></li>
-        <li><a href="#p303"><i data-icon="duration"></i><b class="nums__n"><span class="qty" data-count="18">18</span><i class="nums__u en">mo</i></b><span class="nums__l"><span class="en">University buildings</span><span class="ar" lang="ar" dir="rtl">شهرًا لمباني الجامعة</span></span></a></li>
+        <li><a href="#site/coral-beach-village" data-site="coral-beach-village"><i data-icon="rock"></i><b class="nums__n"><span class="qty" data-count="25000">25,000</span></b><span class="nums__l"><span class="en">m³ rock removed underwater</span><span class="ar" lang="ar" dir="rtl">م³ صخور أُزيلت تحت الماء</span></span></a></li>
+        <li><a href="#site/matrouh-university" data-site="matrouh-university"><i data-icon="duration"></i><b class="nums__n"><span class="qty" data-count="18">18</span><i class="nums__u en">mo</i></b><span class="nums__l"><span class="en">University buildings</span><span class="ar" lang="ar" dir="rtl">شهرًا لمباني الجامعة</span></span></a></li>
       </ul>
       <div class="more" data-more>
         <div class="more__panel">
@@ -244,284 +244,174 @@
       </div>
     </section>
 
-    <!-- FEATURED: CITY CLUB -->
-    <section class="sheet sheet--project" id="p301" data-name="City Club" data-name-ar="سيتي كلوب" data-icon="clubs" aria-labelledby="p301-h">
-      <div class="proj__pin" data-pin>
-        <div class="proj">
-          <figure class="scrub" data-dwg="cityclub">
-            <div class="scrub__stage"></div>
-            <figcaption class="sr-only"><span class="en">Study model of a City Club branch that builds itself as you scroll. Illustrative, not to scale.</span><span class="ar" lang="ar" dir="rtl">نموذج دراسي لفرع من سيتي كلوب يُبنى أثناء التمرير. توضيحي وليس بمقياس رسم.</span></figcaption>
-          </figure>
-          <div class="proj__data">
-            <p class="kicker proj__sec"><i data-icon="clubs"></i><span class="en">Sports and social clubs</span><span class="ar" lang="ar" dir="rtl">الأندية الرياضية والاجتماعية</span></p>
-            <h2 id="p301-h" class="proj__title"><span class="en">City Club</span><span class="ar" lang="ar" dir="rtl">سيتي كلوب</span></h2>
-            <p class="proj__who"><i data-icon="client"></i><span class="en">Estadat for Sports Investment · across Egypt</span><span class="ar" lang="ar" dir="rtl">شركة إستادات للاستثمار الرياضي · في أنحاء مصر</span></p>
-            <ul class="chips">
-              <li class="chip" data-at=".35"><i data-icon="status"></i><b>10</b><span><span class="en">Clubs completed</span><span class="ar" lang="ar" dir="rtl">أندية مكتملة</span></span></li>
-              <li class="chip" data-at=".6"><i data-icon="underway"></i><b>5</b><span><span class="en">Underway</span><span class="ar" lang="ar" dir="rtl">قيد التنفيذ</span></span></li>
-              <li class="chip chip--wide" data-at=".92"><i data-icon="first"></i><b><span class="en">1st</span><span class="ar" lang="ar" dir="rtl">الأول</span></b><span><span class="en">Smart club in Egypt</span><span class="ar" lang="ar" dir="rtl">نادٍ ذكي في مصر</span></span></li>
-            </ul>
-            <ul class="prints" data-prints="cityclub">
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p301" src="../../assets/img/projects/city-club-4-800.webp" width="739" height="415" alt="Aerial view of a City Club: pitch, courts and stands" data-alt-ar="لقطة جوية لسيتي كلوب: الملعب والملاعب الفرعية والمدرجات" loading="lazy" decoding="async"></div></figure></li>
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p301" src="../../assets/img/projects/city-club-2-800.webp" width="800" height="600" alt="City Club indoor sports hall with yellow seating" data-alt-ar="صالة رياضية مغطاة في سيتي كلوب بمقاعد صفراء" loading="lazy" decoding="async"></div></figure></li>
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p301" src="../../assets/img/projects/city-club-3-800.webp" width="800" height="600" alt="City Club padel court with glass walls" data-alt-ar="ملعب بادل بجدران زجاجية في سيتي كلوب" loading="lazy" decoding="async"></div></figure></li>
-            </ul>
-            <div class="more" data-more>
-              <div class="more__panel">
-                <ul class="lines lines--small">
-                  <li><span class="en">Sports halls, padel, pitches, pools and multi-sport courts, with every service building.</span><span class="ar" lang="ar" dir="rtl">صالات رياضية وملاعب بادل وكرة وحمامات سباحة وملاعب متعددة، بكل مباني الخدمات.</span></li>
-                  <li><span class="en">Branches from Tanta and Kafr El Sheikh to Luxor and Aswan.</span><span class="ar" lang="ar" dir="rtl">فروع من طنطا وكفر الشيخ حتى الأقصر وأسوان.</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURED: MATROUH STADIUM -->
-    <section class="sheet sheet--project" id="p302" data-name="Matrouh Stadium" data-name-ar="استاد مطروح" data-icon="sports" aria-labelledby="p302-h">
-      <div class="proj__pin" data-pin>
-        <div class="proj">
-          <figure class="scrub" data-dwg="stadium">
-            <div class="scrub__stage"></div>
-            <figcaption class="sr-only"><span class="en">Study model of Matrouh Stadium that builds itself as you scroll. Illustrative, not to scale.</span><span class="ar" lang="ar" dir="rtl">نموذج دراسي لاستاد مطروح يُبنى أثناء التمرير. توضيحي وليس بمقياس رسم.</span></figcaption>
-          </figure>
-          <div class="proj__data">
-            <p class="kicker proj__sec"><i data-icon="sports"></i><span class="en">Sports</span><span class="ar" lang="ar" dir="rtl">الرياضة</span></p>
-            <h2 id="p302-h" class="proj__title"><span class="en">Matrouh Stadium</span><span class="ar" lang="ar" dir="rtl">استاد مطروح</span></h2>
-            <p class="proj__who"><i data-icon="client"></i><span class="en">Ministry of Youth and Sports · Marsa Matrouh</span><span class="ar" lang="ar" dir="rtl">وزارة الشباب والرياضة · مرسى مطروح</span></p>
-            <ul class="chips">
-              <li class="chip" data-at=".95"><i data-icon="seats"></i><b>26,800</b><span><span class="en">Seats</span><span class="ar" lang="ar" dir="rtl">مقعد</span></span></li>
-              <li class="chip" data-at=".6"><i data-icon="standard"></i><b><span class="en">FIFA</span><span class="ar" lang="ar" dir="rtl">الفيفا</span></b><span><span class="en">Standards</span><span class="ar" lang="ar" dir="rtl">معايير</span></span></li>
-              <li class="chip chip--wide" data-at=".8"><i data-icon="mep"></i><b>LED</b><span><span class="en">Main screen · e-gates</span><span class="ar" lang="ar" dir="rtl">شاشة رئيسية · بوابات إلكترونية</span></span></li>
-            </ul>
-            <ul class="prints" data-prints="stadium">
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p302" src="../../assets/img/projects/matrouh-stadium-1-800.webp" width="512" height="427" alt="Matrouh Stadium pitch, red track and stands" data-alt-ar="ملعب استاد مطروح والمضمار الأحمر والمدرجات" loading="lazy" decoding="async"></div></figure></li>
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p302" src="../../assets/img/projects/matrouh-stadium-3-800.webp" width="329" height="199" alt="Main LED screen above green seating at Matrouh Stadium" data-alt-ar="الشاشة الرئيسية فوق المقاعد الخضراء في استاد مطروح" loading="lazy" decoding="async"></div></figure></li>
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p302" src="../../assets/img/projects/matrouh-stadium-5-800.webp" width="418" height="245" alt="Matrouh Stadium entrance with flags" data-alt-ar="مدخل استاد مطروح بالأعلام" loading="lazy" decoding="async"></div></figure></li>
-            </ul>
-            <div class="more" data-more>
-              <div class="more__panel">
-                <ul class="lines lines--small">
-                  <li><span class="en">Full renovation and modernisation, with infrastructure and water systems.</span><span class="ar" lang="ar" dir="rtl">تجديد وتحديث شامل، مع البنية التحتية وأنظمة المياه.</span></li>
-                  <li class="lines__note"><span class="en">Status not stated in the profile.</span><span class="ar" lang="ar" dir="rtl">الموقف التنفيذي غير مذكور في ملف الشركة.</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURED: MATROUH UNIVERSITY -->
-    <section class="sheet sheet--project" id="p303" data-name="Matrouh University" data-name-ar="جامعة مطروح" data-icon="education" aria-labelledby="p303-h">
-      <div class="proj__pin" data-pin>
-        <div class="proj">
-          <figure class="scrub" data-dwg="university">
-            <div class="scrub__stage"></div>
-            <figcaption class="sr-only"><span class="en">Study model of the Matrouh University campus that builds itself as you scroll. Illustrative, not to scale.</span><span class="ar" lang="ar" dir="rtl">نموذج دراسي لحرم جامعة مطروح يُبنى أثناء التمرير. توضيحي وليس بمقياس رسم.</span></figcaption>
-          </figure>
-          <div class="proj__data">
-            <p class="kicker proj__sec"><i data-icon="education"></i><span class="en">Education</span><span class="ar" lang="ar" dir="rtl">التعليم</span></p>
-            <h2 id="p303-h" class="proj__title"><span class="en">Matrouh University</span><span class="ar" lang="ar" dir="rtl">جامعة مطروح</span></h2>
-            <p class="proj__who"><i data-icon="client"></i><span class="en">Matrouh University · Marsa Matrouh</span><span class="ar" lang="ar" dir="rtl">جامعة مطروح · مرسى مطروح</span></p>
-            <ul class="chips">
-              <li class="chip" data-at=".55"><i data-icon="duration"></i><b>18 <small><span class="en">mo</span><span class="ar" lang="ar" dir="rtl">شهرًا</span></small></b><span><span class="en">Buildings</span><span class="ar" lang="ar" dir="rtl">المباني</span></span></li>
-              <li class="chip" data-at=".95"><i data-icon="duration"></i><b>30 <small><span class="en">mo</span><span class="ar" lang="ar" dir="rtl">شهرًا</span></small></b><span><span class="en">Infrastructure</span><span class="ar" lang="ar" dir="rtl">البنية التحتية</span></span></li>
-              <li class="chip chip--wide" data-at=".8"><i data-icon="networks"></i><b>4</b><span><span class="en">Utility networks · treatment plant</span><span class="ar" lang="ar" dir="rtl">شبكات مرافق · محطة معالجة</span></span></li>
-            </ul>
-            <ul class="prints" data-prints="university">
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p303" src="../../assets/img/projects/matrouh-university-1-800.webp" width="511" height="352" alt="Faculty building at Matrouh University" data-alt-ar="مبنى كلية في جامعة مطروح" loading="lazy" decoding="async"></div></figure></li>
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p303" src="../../assets/img/projects/matrouh-university-2-800.webp" width="411" height="322" alt="Aerial view of the Matrouh University campus" data-alt-ar="لقطة جوية لحرم جامعة مطروح" loading="lazy" decoding="async"></div></figure></li>
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p303" src="../../assets/img/projects/matrouh-university-3-800.webp" width="325" height="160" alt="Council hall at Matrouh University" data-alt-ar="قاعة المجلس في جامعة مطروح" loading="lazy" decoding="async"></div></figure></li>
-            </ul>
-            <div class="more" data-more>
-              <div class="more__panel">
-                <ul class="lines lines--small">
-                  <li><span class="en">Faculties, workshops and services; electrical, sewage, irrigation and fire networks; a wastewater plant that waters the campus.</span><span class="ar" lang="ar" dir="rtl">كليات وورش وخدمات؛ شبكات كهرباء وصرف وري وحريق؛ ومحطة معالجة تروي الحرم.</span></li>
-                  <li class="lines__note"><span class="en">Status: under execution, or handed over; the profile gives both.</span><span class="ar" lang="ar" dir="rtl">الموقف: قيد التنفيذ أو تم التسليم؛ يذكر ملف الشركة الحالتين.</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURED: MOSQUE SQUARE -->
-    <section class="sheet sheet--project" id="p304" data-name="Mosque Square" data-name-ar="ساحة المساجد" data-icon="heritage" aria-labelledby="p304-h">
-      <div class="proj__pin" data-pin>
-        <div class="proj">
-          <figure class="scrub" data-dwg="mosque">
-            <div class="scrub__stage"></div>
-            <figcaption class="sr-only"><span class="en">Study model of the Mosque Square that builds itself as you scroll. Illustrative, not to scale.</span><span class="ar" lang="ar" dir="rtl">نموذج دراسي لساحة المساجد يُبنى أثناء التمرير. توضيحي وليس بمقياس رسم.</span></figcaption>
-          </figure>
-          <div class="proj__data">
-            <p class="kicker proj__sec"><i data-icon="heritage"></i><span class="en">Religious and heritage</span><span class="ar" lang="ar" dir="rtl">ديني وتراثي</span></p>
-            <h2 id="p304-h" class="proj__title"><span class="en">Mosque Square, El-Morsi Abu El-Abbas</span><span class="ar" lang="ar" dir="rtl">ساحة المساجد – المرسي أبو العباس</span></h2>
-            <p class="proj__who"><i data-icon="location"></i><span class="en">Alexandria</span><span class="ar" lang="ar" dir="rtl">الإسكندرية</span></p>
-            <ul class="chips">
-              <li class="chip" data-at=".95"><i data-icon="route"></i><b>1</b><span><span class="en">Promenade, all mosques</span><span class="ar" lang="ar" dir="rtl">ممشى يربط المساجد</span></span></li>
-              <li class="chip" data-at=".55"><i data-icon="heritage"></i><b><span class="en">Kept</span><span class="ar" lang="ar" dir="rtl">محفوظ</span></b><span><span class="en">Heritage</span><span class="ar" lang="ar" dir="rtl">التراث</span></span></li>
-              <li class="chip chip--wide" data-at=".3"><i data-icon="underway"></i><b><span class="en">Works</span><span class="ar" lang="ar" dir="rtl">أعمال</span></b><span><span class="en">In progress in the profile</span><span class="ar" lang="ar" dir="rtl">جارية في ملف الشركة</span></span></li>
-            </ul>
-            <ul class="prints" data-prints="mosque">
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p304" src="../../assets/img/projects/el-morsi-abu-el-abbas-mosque-square-1-800.webp" width="417" height="271" alt="Mosque Square arcade under renovation" data-alt-ar="رواق ساحة المساجد أثناء التجديد" loading="lazy" decoding="async"></div></figure></li>
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p304" src="../../assets/img/projects/el-morsi-abu-el-abbas-mosque-square-3-800.webp" width="420" height="273" alt="Workers on scaffolding erecting arcade beams" data-alt-ar="عمال على السقالات يركّبون كمرات الرواق" loading="lazy" decoding="async"></div></figure></li>
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p304" src="../../assets/img/projects/el-morsi-abu-el-abbas-mosque-square-4-800.webp" width="420" height="269" alt="Rebar for the paving slab along the colonnade" data-alt-ar="حديد تسليح بلاطة الأرضية بمحاذاة الرواق" loading="lazy" decoding="async"></div></figure></li>
-            </ul>
-            <div class="more" data-more>
-              <div class="more__panel">
-                <ul class="lines lines--small">
-                  <li><span class="en">Existing buildings upgraded, new facilities built, one route linking every mosque.</span><span class="ar" lang="ar" dir="rtl">رفع كفاءة المباني القائمة، وإنشاء مرافق جديدة، ومسار واحد يربط كل المساجد.</span></li>
-                  <li class="lines__note"><span class="en">Client not stated; Alexandria inferred from the landmark.</span><span class="ar" lang="ar" dir="rtl">الجهة المالكة غير مذكورة؛ والإسكندرية مستنتجة من المعلم.</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURED: CORAL BEACH -->
-    <section class="sheet sheet--project" id="p305" data-name="Coral Beach Village" data-name-ar="قرية كورال بيتش" data-icon="marine" aria-labelledby="p305-h">
-      <div class="proj__pin" data-pin>
-        <div class="proj">
-          <figure class="scrub" data-dwg="coral">
-            <div class="scrub__stage"></div>
-            <figcaption class="sr-only"><span class="en">Study model of the Coral Beach marine works that builds itself as you scroll. Illustrative, not to scale.</span><span class="ar" lang="ar" dir="rtl">نموذج دراسي للأعمال البحرية في كورال بيتش يُبنى أثناء التمرير. توضيحي وليس بمقياس رسم.</span></figcaption>
-          </figure>
-          <div class="proj__data">
-            <p class="kicker proj__sec"><i data-icon="marine"></i><span class="en">Marine works</span><span class="ar" lang="ar" dir="rtl">أعمال بحرية</span></p>
-            <h2 id="p305-h" class="proj__title"><span class="en">Coral Beach Village</span><span class="ar" lang="ar" dir="rtl">قرية كورال بيتش</span></h2>
-            <p class="proj__who"><i data-icon="client"></i><span class="en">Coral Beach Village</span><span class="ar" lang="ar" dir="rtl">قرية كورال بيتش</span></p>
-            <ul class="chips">
-              <li class="chip" data-at=".3"><i data-icon="rock"></i><b>25,000 <small>m³</small></b><span><span class="en">Rock removed</span><span class="ar" lang="ar" dir="rtl">صخور أُزيلت</span></span></li>
-              <li class="chip" data-at=".55"><i data-icon="channel"></i><b>90 <small>m</small></b><span><span class="en">Channel</span><span class="ar" lang="ar" dir="rtl">قناة</span></span></li>
-              <li class="chip" data-at=".8"><i data-icon="pier"></i><b>45 <small>m</small></b><span><span class="en">Concrete pier</span><span class="ar" lang="ar" dir="rtl">رصيف خرساني</span></span></li>
-              <li class="chip" data-at=".95"><i data-icon="water"></i><b>2</b><span><span class="en">Lagoons + marina</span><span class="ar" lang="ar" dir="rtl">بحيرتان + مرسى</span></span></li>
-            </ul>
-            <ul class="prints prints--two" data-prints="coral">
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p305" src="../../assets/img/projects/coral-beach-village-1-800.webp" width="800" height="376" alt="Coral Beach Village lagoon beach with thatched umbrellas" data-alt-ar="شاطئ البحيرة في قرية كورال بيتش بالمظلات" loading="lazy" decoding="async"></div></figure></li>
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p305" src="../../assets/img/projects/coral-beach-village-2-800.webp" width="800" height="376" alt="Coral Beach Village resort pool with slides and palms" data-alt-ar="حمام السباحة في منتجع كورال بيتش بالزلاقات والنخيل" loading="lazy" decoding="async"></div></figure></li>
-            </ul>
-            <div class="more" data-more>
-              <div class="more__panel">
-                <ul class="lines lines--small">
-                  <li><span class="en">Underwater rock removal, breakwaters with riprap, a wooden barrier and a walkway.</span><span class="ar" lang="ar" dir="rtl">إزالة صخور تحت الماء، وحواجز أمواج بالدبش، وحاجز خشبي، وممشى.</span></li>
-                  <li class="lines__note"><span class="en">Location and status not stated.</span><span class="ar" lang="ar" dir="rtl">الموقع والموقف التنفيذي غير مذكورين.</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURED: FACTORIES -->
-    <section class="sheet sheet--project" id="p306" data-name="Factories" data-name-ar="المصانع" data-icon="industry" aria-labelledby="p306-h">
-      <div class="proj__pin" data-pin>
-        <div class="proj">
-          <figure class="scrub" data-dwg="factory">
-            <div class="scrub__stage"></div>
-            <figcaption class="sr-only"><span class="en">Study model of a typical factory that builds itself as you scroll. Illustrative and representative, not to scale.</span><span class="ar" lang="ar" dir="rtl">نموذج دراسي لمصنع نموذجي يُبنى أثناء التمرير. توضيحي وليس بمقياس رسم.</span></figcaption>
-          </figure>
-          <div class="proj__data">
-            <p class="kicker proj__sec"><i data-icon="industry"></i><span class="en">Industry</span><span class="ar" lang="ar" dir="rtl">الصناعة</span></p>
-            <h2 id="p306-h" class="proj__title"><span class="en">Factories</span><span class="ar" lang="ar" dir="rtl">المصانع</span></h2>
-            <p class="proj__who"><i data-icon="client"></i><span class="en">Beyti – Almarai · Faragello · Aquafac</span><span class="ar" lang="ar" dir="rtl">بيتي – المراعي · فرجيللو · أيكوفاك</span></p>
-            <ul class="chips">
-              <li class="chip" data-at=".35"><i data-icon="industry"></i><b>3</b><span><span class="en">Factories</span><span class="ar" lang="ar" dir="rtl">مصانع</span></span></li>
-              <li class="chip" data-at=".7"><i data-icon="mep"></i><b><span class="en">MEP</span><span class="ar" lang="ar" dir="rtl">كهروميكانيكا</span></b><span><span class="en">Electrical · fire · infrastructure</span><span class="ar" lang="ar" dir="rtl">كهرباء · حريق · بنية تحتية</span></span></li>
-              <li class="chip chip--wide" data-at=".95"><i data-icon="underway"></i><b><span class="en">Underway</span><span class="ar" lang="ar" dir="rtl">قيد التنفيذ</span></b><span><span class="en">Beyti – Almarai</span><span class="ar" lang="ar" dir="rtl">بيتي – المراعي</span></span></li>
-            </ul>
-            <ul class="prints prints--two" data-prints="factory">
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p306" src="../../assets/img/projects/faragello-cake-factory-1-800.webp" width="500" height="285" alt="Blue-roofed Faragello factory buildings in Borg El Arab" data-alt-ar="مباني مصنع فرجيللو بأسقف زرقاء في برج العرب" loading="lazy" decoding="async"></div></figure></li>
-              <li class="print"><figure><div class="print__img"><img data-lightbox="p306" src="../../assets/img/projects/beyti-almarai-factory-1-800.webp" width="746" height="707" alt="Beyti – Almarai plant room with control panels and pipework" data-alt-ar="غرفة معدات مصنع بيتي – المراعي بلوحات التحكم والمواسير" loading="lazy" decoding="async"></div></figure></li>
-            </ul>
-            <div class="more" data-more>
-              <div class="more__panel">
-                <ul class="lines lines--small">
-                  <li><b><span class="en">Faragello</span><span class="ar" lang="ar" dir="rtl">فرجيللو</span></b> · <span class="en">cake and dairy factory, Borg El Arab.</span><span class="ar" lang="ar" dir="rtl">مصنع الكيك والألبان، برج العرب.</span></li>
-                  <li><b><span class="en">Aquafac</span><span class="ar" lang="ar" dir="rtl">أيكوفاك</span></b> · <span class="en">pharmaceutical factory, 6th of October City.</span><span class="ar" lang="ar" dir="rtl">مصنع أدوية، مدينة 6 أكتوبر.</span></li>
-                  <li class="lines__note"><span class="en">Faragello and Aquafac: under development, or handed over; the profile gives both.</span><span class="ar" lang="ar" dir="rtl">فرجيللو وأيكوفاك: قيد التنفيذ أو تم التسليم؛ يذكر ملف الشركة الحالتين.</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MORE PROJECTS -->
-    <section class="sheet" id="p307" data-name="More projects" data-name-ar="مشروعات أخرى" data-icon="grid" aria-labelledby="p307-h">
+    <!-- PROJECTS: every card opens the site view (site/) with a 3D model of the site -->
+    <section class="sheet sheet--sites" id="projects" data-name="Projects" data-name-ar="المشروعات" data-icon="grid" aria-labelledby="projects-h">
       <header class="sheet__head">
         <span class="sheet__mark" aria-hidden="true"></span>
-        <h2 id="p307-h" class="sheet__title"><span class="en">More projects</span><span class="ar" lang="ar" dir="rtl">مشروعات أخرى</span></h2>
+        <h2 id="projects-h" class="sheet__title"><span class="en">Projects</span><span class="ar" lang="ar" dir="rtl">المشروعات</span></h2>
+        <p class="sheet__aside"><span class="en">Tap a project to explore a 3D model of the site.</span><span class="ar" lang="ar" dir="rtl">اضغط على أي مشروع لتستكشف نموذجًا ثلاثي الأبعاد للموقع.</span></p>
       </header>
-      <div class="details">
-        <article class="det reveal">
-          <div class="det__fig"><svg class="dwg" data-detail="hadaf" viewBox="0 0 320 200" aria-hidden="true"></svg><img data-lightbox="more" src="../../assets/img/projects/el-hadaf-training-center-2-800.webp" width="392" height="260" alt="El-Hadaf training pitches and landscaped walkways" data-alt-ar="ملاعب تدريب مركز الهدف والممرات المنسّقة" loading="lazy" decoding="async"></div>
-          <h3><span class="en">El-Hadaf National Teams Training Center</span><span class="ar" lang="ar" dir="rtl">مركز الهدف لتدريب المنتخبات الوطنية</span></h3>
-          <p class="det__chips"><span><i data-icon="sports"></i><span class="en">Sports</span><span class="ar" lang="ar" dir="rtl">الرياضة</span></span><span class="is-done"><i data-icon="status"></i><span class="en">Handed over</span><span class="ar" lang="ar" dir="rtl">تم التسليم</span></span></p>
-          <div class="more" data-more><div class="more__panel"><p><span class="en">Egyptian Football Association · 6th of October City. New buildings, a redeveloped facility, all infrastructure and MEP.</span><span class="ar" lang="ar" dir="rtl">الاتحاد المصري لكرة القدم · مدينة 6 أكتوبر. مبانٍ جديدة، وإعادة تأهيل منشأة، وكل أعمال البنية التحتية والكهروميكانيكا.</span></p></div></div>
-        </article>
-        <article class="det reveal">
-          <div class="det__fig"><svg class="dwg" data-detail="banque" viewBox="0 0 320 200" aria-hidden="true"></svg><img data-lightbox="more" src="../../assets/img/projects/banque-misr-5-800.webp" width="480" height="319" alt="Glazed Banque Misr office building" data-alt-ar="مبنى بنك مصر الإداري الزجاجي" loading="lazy" decoding="async"></div>
-          <h3><span class="en">Banque Misr</span><span class="ar" lang="ar" dir="rtl">بنك مصر</span></h3>
-          <p class="det__chips"><span><i data-icon="banks"></i><span class="en">Banks</span><span class="ar" lang="ar" dir="rtl">البنوك</span></span><span><i data-icon="underway"></i><span class="en">Underway</span><span class="ar" lang="ar" dir="rtl">قيد التنفيذ</span></span></p>
-          <div class="more" data-more><div class="more__panel"><p><span class="en">MEP, electrical, fire systems and infrastructure. El Shorouk branch (probable).</span><span class="ar" lang="ar" dir="rtl">أعمال كهروميكانيكية وكهربائية وأنظمة حريق وبنية تحتية. فرع الشروق (مرجّح).</span></p></div></div>
-        </article>
-        <article class="det reveal">
-          <div class="det__fig"><svg class="dwg" data-detail="abbassia" viewBox="0 0 320 200" aria-hidden="true"></svg><img data-lightbox="more" src="../../assets/img/projects/abbassia-mental-health-hospital-1-800.webp" width="414" height="411" alt="Renovated Ward 18 at Abbassia hospital" data-alt-ar="العنبر 18 بعد التجديد في مستشفى العباسية" loading="lazy" decoding="async"></div>
-          <h3><span class="en">Abbassia Hospital, Ward 18</span><span class="ar" lang="ar" dir="rtl">مستشفى العباسية – العنبر 18</span></h3>
-          <p class="det__chips"><span><i data-icon="health"></i><span class="en">Healthcare</span><span class="ar" lang="ar" dir="rtl">الصحة</span></span><span class="is-done"><i data-icon="status"></i><span class="en">Completed</span><span class="ar" lang="ar" dir="rtl">مكتمل</span></span></p>
-          <div class="more" data-more><div class="more__panel"><p><span class="en">Redevelopment of Ward 18 and its annexes, Abbassia, Cairo.</span><span class="ar" lang="ar" dir="rtl">إعادة تطوير العنبر 18 وملحقاته، العباسية، القاهرة.</span></p></div></div>
-        </article>
-        <article class="det reveal">
-          <div class="det__fig det__fig--solo"><svg class="dwg" data-detail="alexeng" viewBox="0 0 320 200" aria-hidden="true"></svg></div>
-          <h3><span class="en">Engineering Center, Alexandria University</span><span class="ar" lang="ar" dir="rtl">المركز الهندسي – جامعة الإسكندرية</span></h3>
-          <p class="det__chips"><span><i data-icon="education"></i><span class="en">Education</span><span class="ar" lang="ar" dir="rtl">التعليم</span></span><span><i data-icon="underway"></i><span class="en">Underway</span><span class="ar" lang="ar" dir="rtl">قيد التنفيذ</span></span></p>
-          <div class="more" data-more><div class="more__panel"><p><span class="en">A new engineering centre for the Faculty of Engineering, Alexandria.</span><span class="ar" lang="ar" dir="rtl">مركز هندسي جديد لكلية الهندسة، الإسكندرية.</span></p></div></div>
-        </article>
-        <article class="det reveal">
-          <div class="det__fig"><svg class="dwg" data-detail="suez" viewBox="0 0 320 200" aria-hidden="true"></svg><img data-lightbox="more" src="../../assets/img/projects/suez-stadium-2-800.webp" width="800" height="533" alt="Suez Stadium floodlit at night" data-alt-ar="استاد السويس مضاءً ليلًا" loading="lazy" decoding="async"></div>
-          <h3><span class="en">Suez Stadium</span><span class="ar" lang="ar" dir="rtl">استاد السويس</span></h3>
-          <p class="det__chips"><span><i data-icon="sports"></i><span class="en">Sports</span><span class="ar" lang="ar" dir="rtl">الرياضة</span></span><span><i data-icon="seats"></i><span class="en">Seats · LED · e-gates</span><span class="ar" lang="ar" dir="rtl">مقاعد · شاشة · بوابات</span></span></p>
-          <div class="more" data-more><div class="more__panel"><p><span class="en">Ministry of Youth and Sports. Seating, main LED screen, electronic gates, infrastructure and water systems.</span><span class="ar" lang="ar" dir="rtl">وزارة الشباب والرياضة. المقاعد والشاشة الرئيسية والبوابات الإلكترونية والبنية التحتية وأنظمة المياه.</span></p></div></div>
-        </article>
-        <article class="det reveal">
-          <div class="det__fig"><svg class="dwg" data-detail="aswan" viewBox="0 0 320 200" aria-hidden="true"></svg><img data-lightbox="more" src="../../assets/img/projects/aswan-stadium-3-800.webp" width="420" height="413" alt="Covered stand with new seating at Aswan Stadium" data-alt-ar="مدرج مغطى بمقاعد جديدة في استاد أسوان" loading="lazy" decoding="async"></div>
-          <h3><span class="en">Aswan Sports Stadium</span><span class="ar" lang="ar" dir="rtl">استاد أسوان الرياضي</span></h3>
-          <p class="det__chips"><span><i data-icon="sports"></i><span class="en">Sports</span><span class="ar" lang="ar" dir="rtl">الرياضة</span></span><span><i data-icon="standard"></i><span class="en">FIFA standards</span><span class="ar" lang="ar" dir="rtl">معايير الفيفا</span></span></p>
-          <div class="more" data-more><div class="more__panel"><p><span class="en">Ministry of Youth and Sports. Full renovation and redevelopment to FIFA standards.</span><span class="ar" lang="ar" dir="rtl">وزارة الشباب والرياضة. تجديد وإعادة تطوير شاملة وفق معايير الفيفا.</span></p></div></div>
-        </article>
-        <article class="det det--wide reveal">
-          <div class="det__fig"><svg class="dwg" data-detail="tivoli" viewBox="0 0 320 200" aria-hidden="true"></svg><img data-lightbox="more" src="../../assets/img/projects/tivoli-dome-1-800.webp" width="800" height="533" alt="Tivoli Dome Heliopolis at night around its lake" data-alt-ar="تيفولي دوم مصر الجديدة ليلًا حول البحيرة" loading="lazy" decoding="async"></div>
-          <h3><span class="en">Tivoli Dome, Heliopolis</span><span class="ar" lang="ar" dir="rtl">تيفولي دوم – مصر الجديدة</span></h3>
-          <p class="det__chips"><span><i data-icon="hospitality"></i><span class="en">Hospitality</span><span class="ar" lang="ar" dir="rtl">الضيافة</span></span><span><i data-icon="first"></i><span class="en">Guinness World Record venue</span><span class="ar" lang="ar" dir="rtl">موقع حاصل على رقم غينيس</span></span></p>
-          <div class="more" data-more><div class="more__panel"><p><span class="en">Restaurants and cafés around a lake, in keeping with historic Heliopolis and the Baron Empain palace. The record is the venue’s; Montaser’s scope is to be confirmed.</span><span class="ar" lang="ar" dir="rtl">مطاعم ومقاهٍ حول بحيرة بطراز يتناغم مع مصر الجديدة التاريخية وقصر البارون إمبان. الرقم القياسي للموقع، ونطاق أعمال منتصر بحاجة إلى تأكيد.</span></p></div></div>
-        </article>
-        <article class="det reveal">
-          <div class="det__fig"><svg class="dwg" data-detail="movenpick" viewBox="0 0 320 200" aria-hidden="true"></svg><img data-lightbox="more" src="../../assets/img/projects/movenpick-airport-hotel-1-800.webp" width="800" height="388" alt="Mövenpick Airport Hotel entrance canopy at night" data-alt-ar="مظلة مدخل فندق موفنبيك المطار ليلًا" loading="lazy" decoding="async"></div>
-          <h3><span class="en">Mövenpick Airport Hotel</span><span class="ar" lang="ar" dir="rtl">فندق موفنبيك المطار</span></h3>
-          <p class="det__chips"><span><i data-icon="landscape"></i><span class="en">Landscape</span><span class="ar" lang="ar" dir="rtl">تنسيق المواقع</span></span><span><i data-icon="location"></i><span class="en">Heliopolis</span><span class="ar" lang="ar" dir="rtl">مصر الجديدة</span></span></p>
-          <div class="more" data-more><div class="more__panel"><p><span class="en">Landscape and site coordination: green areas, trees, rocks and natural scenery.</span><span class="ar" lang="ar" dir="rtl">تنسيق الموقع العام: مسطحات خضراء وأشجار وصخور ومناظر طبيعية.</span></p></div></div>
-        </article>
-        <article class="det reveal">
-          <div class="det__fig"><svg class="dwg" data-detail="laplage" viewBox="0 0 320 200" aria-hidden="true"></svg><img data-lightbox="more" src="../../assets/img/projects/la-plage-beach-2-800.webp" width="429" height="206" alt="La Plage Beach lawn with timber walkway and pergolas" data-alt-ar="حديقة شاطئ لا بلاج بممشى خشبي وبرجولات" loading="lazy" decoding="async"></div>
-          <h3><span class="en">La Plage Beach</span><span class="ar" lang="ar" dir="rtl">شاطئ لا بلاج</span></h3>
-          <p class="det__chips"><span><i data-icon="hospitality"></i><span class="en">Hospitality</span><span class="ar" lang="ar" dir="rtl">الضيافة</span></span><span><i data-icon="landscape"></i><span class="en">Landscape</span><span class="ar" lang="ar" dir="rtl">تنسيق المواقع</span></span></p>
-          <div class="more" data-more><div class="more__panel"><p><span class="en">Landscape works, restaurants, restrooms, entrances and a reception office.</span><span class="ar" lang="ar" dir="rtl">أعمال تنسيق الموقع، ومطاعم، ودورات مياه، ومداخل، ومكتب استقبال.</span></p></div></div>
-        </article>
-        <article class="det reveal">
-          <div class="det__fig"><svg class="dwg" data-detail="rowing" viewBox="0 0 320 200" aria-hidden="true"></svg><img data-lightbox="more" src="../../assets/img/projects/egyptian-rowing-club-1-800.webp" width="419" height="412" alt="Renovated floating clubhouse of the Egyptian Rowing Club" data-alt-ar="المقر العائم المجدَّد للنادي المصري للتجديف" loading="lazy" decoding="async"></div>
-          <h3><span class="en">Egyptian Rowing Club</span><span class="ar" lang="ar" dir="rtl">النادي المصري للتجديف</span></h3>
-          <p class="det__chips"><span><i data-icon="clubs"></i><span class="en">Clubs</span><span class="ar" lang="ar" dir="rtl">الأندية</span></span><span><i data-icon="marine"></i><span class="en">Floating clubhouse</span><span class="ar" lang="ar" dir="rtl">مقر عائم</span></span></p>
-          <div class="more" data-more><div class="more__panel"><p><span class="en">Renovation and redevelopment of the club’s floating facilities.</span><span class="ar" lang="ar" dir="rtl">تجديد وإعادة تطوير المرافق العائمة للنادي.</span></p></div></div>
-        </article>
-      </div>
+      <ul class="sites sites--featured">
+        <li class="site-card site-card--lg">
+          <a href="#site/city-club" data-site="city-club" aria-labelledby="sc-city-club-t sc-city-club-3d" aria-describedby="sc-city-club-d">
+            <span class="site-card__ph"><img src="../../assets/img/projects/city-club-4-800.webp" width="739" height="415" alt="Aerial view of a City Club: pitch, courts and stands" data-alt-ar="لقطة جوية لسيتي كلوب: الملعب والملاعب الفرعية والمدرجات" loading="lazy" decoding="async"></span>
+            <span class="site-card__3d" id="sc-city-club-3d"><i data-icon="cube"></i>3D</span>
+            <span class="site-card__body">
+              <span class="site-card__sec"><i data-icon="clubs"></i><span class="en">Sports and social clubs</span><span class="ar" lang="ar" dir="rtl">الأندية الرياضية والاجتماعية</span></span>
+              <h3 class="site-card__t" id="sc-city-club-t"><span class="en">City Club</span><span class="ar" lang="ar" dir="rtl">سيتي كلوب</span></h3>
+              <span class="site-card__chips" id="sc-city-club-d"><span class="site-card__chip"><b>10</b><span><span class="en">Clubs completed</span><span class="ar" lang="ar" dir="rtl">أندية مكتملة</span></span></span><span class="site-card__chip"><b>5</b><span><span class="en">Underway</span><span class="ar" lang="ar" dir="rtl">قيد التنفيذ</span></span></span><span class="site-card__chip"><b><span class="en">1st</span><span class="ar" lang="ar" dir="rtl">الأول</span></b><span><span class="en">Smart club in Egypt</span><span class="ar" lang="ar" dir="rtl">نادٍ ذكي في مصر</span></span></span></span>
+            </span>
+          </a>
+        </li>
+        <li class="site-card site-card--lg">
+          <a href="#site/matrouh-stadium" data-site="matrouh-stadium" aria-labelledby="sc-matrouh-stadium-t sc-matrouh-stadium-3d" aria-describedby="sc-matrouh-stadium-d">
+            <span class="site-card__ph"><img src="../../assets/img/projects/matrouh-stadium-1-800.webp" width="512" height="427" alt="Matrouh Stadium pitch, red track and stands" data-alt-ar="ملعب استاد مطروح والمضمار الأحمر والمدرجات" loading="lazy" decoding="async"></span>
+            <span class="site-card__3d" id="sc-matrouh-stadium-3d"><i data-icon="cube"></i>3D</span>
+            <span class="site-card__body">
+              <span class="site-card__sec"><i data-icon="sports"></i><span class="en">Sports</span><span class="ar" lang="ar" dir="rtl">الرياضة</span></span>
+              <h3 class="site-card__t" id="sc-matrouh-stadium-t"><span class="en">Matrouh Stadium</span><span class="ar" lang="ar" dir="rtl">استاد مطروح</span></h3>
+              <span class="site-card__chips" id="sc-matrouh-stadium-d"><span class="site-card__chip"><b>26,800</b><span><span class="en">Seats</span><span class="ar" lang="ar" dir="rtl">مقعد</span></span></span><span class="site-card__chip"><b><span class="en">FIFA</span><span class="ar" lang="ar" dir="rtl">الفيفا</span></b><span><span class="en">Standards</span><span class="ar" lang="ar" dir="rtl">معايير</span></span></span><span class="site-card__chip"><b>LED</b><span><span class="en">Main screen · e-gates</span><span class="ar" lang="ar" dir="rtl">شاشة رئيسية · بوابات إلكترونية</span></span></span></span>
+            </span>
+          </a>
+        </li>
+        <li class="site-card site-card--lg">
+          <a href="#site/matrouh-university" data-site="matrouh-university" aria-labelledby="sc-matrouh-university-t sc-matrouh-university-3d" aria-describedby="sc-matrouh-university-d">
+            <span class="site-card__ph"><img src="../../assets/img/projects/matrouh-university-1-800.webp" width="511" height="352" alt="Faculty building at Matrouh University" data-alt-ar="مبنى كلية في جامعة مطروح" loading="lazy" decoding="async"></span>
+            <span class="site-card__3d" id="sc-matrouh-university-3d"><i data-icon="cube"></i>3D</span>
+            <span class="site-card__body">
+              <span class="site-card__sec"><i data-icon="education"></i><span class="en">Education</span><span class="ar" lang="ar" dir="rtl">التعليم</span></span>
+              <h3 class="site-card__t" id="sc-matrouh-university-t"><span class="en">Matrouh University</span><span class="ar" lang="ar" dir="rtl">جامعة مطروح</span></h3>
+              <span class="site-card__chips" id="sc-matrouh-university-d"><span class="site-card__chip"><b>18 <small><span class="en">mo</span><span class="ar" lang="ar" dir="rtl">شهرًا</span></small></b><span><span class="en">Buildings</span><span class="ar" lang="ar" dir="rtl">المباني</span></span></span><span class="site-card__chip"><b>30 <small><span class="en">mo</span><span class="ar" lang="ar" dir="rtl">شهرًا</span></small></b><span><span class="en">Infrastructure</span><span class="ar" lang="ar" dir="rtl">البنية التحتية</span></span></span><span class="site-card__chip"><b>4</b><span><span class="en">Utility networks · treatment plant</span><span class="ar" lang="ar" dir="rtl">شبكات مرافق · محطة معالجة</span></span></span></span>
+            </span>
+          </a>
+        </li>
+        <li class="site-card site-card--lg">
+          <a href="#site/el-morsi-abu-el-abbas-mosque-square" data-site="el-morsi-abu-el-abbas-mosque-square" aria-labelledby="sc-el-morsi-abu-el-abbas-mosque-square-t sc-el-morsi-abu-el-abbas-mosque-square-3d" aria-describedby="sc-el-morsi-abu-el-abbas-mosque-square-d">
+            <span class="site-card__ph"><img src="../../assets/img/projects/el-morsi-abu-el-abbas-mosque-square-1-800.webp" width="417" height="271" alt="Mosque Square arcade under renovation" data-alt-ar="رواق ساحة المساجد أثناء التجديد" loading="lazy" decoding="async"></span>
+            <span class="site-card__3d" id="sc-el-morsi-abu-el-abbas-mosque-square-3d"><i data-icon="cube"></i>3D</span>
+            <span class="site-card__body">
+              <span class="site-card__sec"><i data-icon="heritage"></i><span class="en">Religious and heritage</span><span class="ar" lang="ar" dir="rtl">ديني وتراثي</span></span>
+              <h3 class="site-card__t" id="sc-el-morsi-abu-el-abbas-mosque-square-t"><span class="en">Mosque Square, El-Morsi Abu El-Abbas</span><span class="ar" lang="ar" dir="rtl">ساحة المساجد – المرسي أبو العباس</span></h3>
+              <span class="site-card__chips" id="sc-el-morsi-abu-el-abbas-mosque-square-d"><span class="site-card__chip"><b>1</b><span><span class="en">Promenade, all mosques</span><span class="ar" lang="ar" dir="rtl">ممشى يربط المساجد</span></span></span><span class="site-card__chip"><b><span class="en">Kept</span><span class="ar" lang="ar" dir="rtl">محفوظ</span></b><span><span class="en">Heritage</span><span class="ar" lang="ar" dir="rtl">التراث</span></span></span><span class="site-card__chip"><b><span class="en">Works</span><span class="ar" lang="ar" dir="rtl">أعمال</span></b><span><span class="en">In progress in the profile</span><span class="ar" lang="ar" dir="rtl">جارية في ملف الشركة</span></span></span></span>
+            </span>
+          </a>
+        </li>
+        <li class="site-card site-card--lg">
+          <a href="#site/coral-beach-village" data-site="coral-beach-village" aria-labelledby="sc-coral-beach-village-t sc-coral-beach-village-3d" aria-describedby="sc-coral-beach-village-d">
+            <span class="site-card__ph"><img src="../../assets/img/projects/coral-beach-village-1-800.webp" width="800" height="376" alt="Coral Beach Village lagoon beach with thatched umbrellas" data-alt-ar="شاطئ البحيرة في قرية كورال بيتش بالمظلات" loading="lazy" decoding="async"></span>
+            <span class="site-card__3d" id="sc-coral-beach-village-3d"><i data-icon="cube"></i>3D</span>
+            <span class="site-card__body">
+              <span class="site-card__sec"><i data-icon="marine"></i><span class="en">Marine works</span><span class="ar" lang="ar" dir="rtl">أعمال بحرية</span></span>
+              <h3 class="site-card__t" id="sc-coral-beach-village-t"><span class="en">Coral Beach Village</span><span class="ar" lang="ar" dir="rtl">قرية كورال بيتش</span></h3>
+              <span class="site-card__chips" id="sc-coral-beach-village-d"><span class="site-card__chip"><b>25,000 <small>m³</small></b><span><span class="en">Rock removed</span><span class="ar" lang="ar" dir="rtl">صخور أُزيلت</span></span></span><span class="site-card__chip"><b>90 <small>m</small></b><span><span class="en">Channel</span><span class="ar" lang="ar" dir="rtl">قناة</span></span></span><span class="site-card__chip"><b>45 <small>m</small></b><span><span class="en">Concrete pier</span><span class="ar" lang="ar" dir="rtl">رصيف خرساني</span></span></span></span>
+            </span>
+          </a>
+        </li>
+        <li class="site-card site-card--lg">
+          <a href="#site/factories" data-site="factories" aria-labelledby="sc-factories-t sc-factories-3d" aria-describedby="sc-factories-d">
+            <span class="site-card__ph"><img src="../../assets/img/projects/faragello-cake-factory-1-800.webp" width="500" height="285" alt="Blue-roofed Faragello factory buildings in Borg El Arab" data-alt-ar="مباني مصنع فرجيللو بأسقف زرقاء في برج العرب" loading="lazy" decoding="async"></span>
+            <span class="site-card__3d" id="sc-factories-3d"><i data-icon="cube"></i>3D</span>
+            <span class="site-card__body">
+              <span class="site-card__sec"><i data-icon="industry"></i><span class="en">Industry</span><span class="ar" lang="ar" dir="rtl">الصناعة</span></span>
+              <h3 class="site-card__t" id="sc-factories-t"><span class="en">Factories</span><span class="ar" lang="ar" dir="rtl">المصانع</span></h3>
+              <span class="site-card__chips" id="sc-factories-d"><span class="site-card__chip"><b>3</b><span><span class="en">Factories</span><span class="ar" lang="ar" dir="rtl">مصانع</span></span></span><span class="site-card__chip"><b><span class="en">MEP</span><span class="ar" lang="ar" dir="rtl">كهروميكانيكا</span></b><span><span class="en">Electrical · fire · infrastructure</span><span class="ar" lang="ar" dir="rtl">كهرباء · حريق · بنية تحتية</span></span></span><span class="site-card__chip"><b><span class="en">Underway</span><span class="ar" lang="ar" dir="rtl">قيد التنفيذ</span></b><span><span class="en">Beyti – Almarai</span><span class="ar" lang="ar" dir="rtl">بيتي – المراعي</span></span></span></span>
+            </span>
+          </a>
+        </li>
+      </ul>
+      <ul class="sites sites--more">
+        <li class="site-card site-card--wide">
+          <a href="#site/suez-stadium" data-site="suez-stadium" aria-labelledby="sc-suez-stadium-t sc-suez-stadium-3d" aria-describedby="sc-suez-stadium-d">
+            <span class="site-card__ph"><img src="../../assets/img/projects/suez-stadium-2-800.webp" width="800" height="533" alt="Suez Stadium floodlit at night" data-alt-ar="استاد السويس مضاءً ليلًا" loading="lazy" decoding="async"></span>
+            <span class="site-card__3d" id="sc-suez-stadium-3d"><i data-icon="cube"></i>3D</span>
+            <span class="site-card__body">
+              <h3 class="site-card__t" id="sc-suez-stadium-t"><i data-icon="sports"></i><span class="en">Suez Stadium</span><span class="ar" lang="ar" dir="rtl">استاد السويس</span></h3>
+              <span class="site-card__status" id="sc-suez-stadium-d"><i data-icon="seats"></i><span class="en">Seats · LED · e-gates</span><span class="ar" lang="ar" dir="rtl">مقاعد · شاشة · بوابات</span></span>
+            </span>
+          </a>
+        </li>
+        <li class="site-card">
+          <a href="#site/aswan-stadium" data-site="aswan-stadium" aria-labelledby="sc-aswan-stadium-t sc-aswan-stadium-3d" aria-describedby="sc-aswan-stadium-d">
+            <span class="site-card__ph"><img src="../../assets/img/projects/aswan-stadium-3-800.webp" width="420" height="413" alt="Covered stand with new seating at Aswan Stadium" data-alt-ar="مدرج مغطى بمقاعد جديدة في استاد أسوان" loading="lazy" decoding="async"></span>
+            <span class="site-card__3d" id="sc-aswan-stadium-3d"><i data-icon="cube"></i>3D</span>
+            <span class="site-card__body">
+              <h3 class="site-card__t" id="sc-aswan-stadium-t"><i data-icon="sports"></i><span class="en">Aswan Sports Stadium</span><span class="ar" lang="ar" dir="rtl">استاد أسوان الرياضي</span></h3>
+              <span class="site-card__status" id="sc-aswan-stadium-d"><i data-icon="standard"></i><span class="en">FIFA standards</span><span class="ar" lang="ar" dir="rtl">معايير الفيفا</span></span>
+            </span>
+          </a>
+        </li>
+        <li class="site-card">
+          <a href="#site/el-hadaf-training-center" data-site="el-hadaf-training-center" aria-labelledby="sc-el-hadaf-training-center-t sc-el-hadaf-training-center-3d" aria-describedby="sc-el-hadaf-training-center-d">
+            <span class="site-card__ph"><img src="../../assets/img/projects/el-hadaf-training-center-2-800.webp" width="392" height="260" alt="El-Hadaf training pitches and landscaped walkways" data-alt-ar="ملاعب تدريب مركز الهدف والممرات المنسّقة" loading="lazy" decoding="async"></span>
+            <span class="site-card__3d" id="sc-el-hadaf-training-center-3d"><i data-icon="cube"></i>3D</span>
+            <span class="site-card__body">
+              <h3 class="site-card__t" id="sc-el-hadaf-training-center-t"><i data-icon="sports"></i><span class="en">El-Hadaf National Teams Training Center</span><span class="ar" lang="ar" dir="rtl">مركز الهدف لتدريب المنتخبات الوطنية</span></h3>
+              <span class="site-card__status is-done" id="sc-el-hadaf-training-center-d"><i data-icon="status"></i><span class="en">Handed over</span><span class="ar" lang="ar" dir="rtl">تم التسليم</span></span>
+            </span>
+          </a>
+        </li>
+        <li class="site-card site-card--wide">
+          <a href="#site/tivoli-dome" data-site="tivoli-dome" aria-labelledby="sc-tivoli-dome-t sc-tivoli-dome-3d" aria-describedby="sc-tivoli-dome-d">
+            <span class="site-card__ph"><img src="../../assets/img/projects/tivoli-dome-1-800.webp" width="800" height="533" alt="Tivoli Dome Heliopolis at night around its lake" data-alt-ar="تيفولي دوم مصر الجديدة ليلًا حول البحيرة" loading="lazy" decoding="async"></span>
+            <span class="site-card__3d" id="sc-tivoli-dome-3d"><i data-icon="cube"></i>3D</span>
+            <span class="site-card__body">
+              <h3 class="site-card__t" id="sc-tivoli-dome-t"><i data-icon="hospitality"></i><span class="en">Tivoli Dome, Heliopolis</span><span class="ar" lang="ar" dir="rtl">تيفولي دوم – مصر الجديدة</span></h3>
+              <span class="site-card__status" id="sc-tivoli-dome-d"><i data-icon="first"></i><span class="en">Guinness World Record venue</span><span class="ar" lang="ar" dir="rtl">موقع حاصل على رقم غينيس</span></span>
+            </span>
+          </a>
+        </li>
+        <li class="site-card site-card--wide">
+          <a href="#site/movenpick-airport-hotel" data-site="movenpick-airport-hotel" aria-labelledby="sc-movenpick-airport-hotel-t sc-movenpick-airport-hotel-3d" aria-describedby="sc-movenpick-airport-hotel-d">
+            <span class="site-card__ph"><img src="../../assets/img/projects/movenpick-airport-hotel-1-800.webp" width="800" height="388" alt="Mövenpick Airport Hotel entrance canopy at night" data-alt-ar="مظلة مدخل فندق موفنبيك المطار ليلًا" loading="lazy" decoding="async"></span>
+            <span class="site-card__3d" id="sc-movenpick-airport-hotel-3d"><i data-icon="cube"></i>3D</span>
+            <span class="site-card__body">
+              <h3 class="site-card__t" id="sc-movenpick-airport-hotel-t"><i data-icon="hospitality"></i><span class="en">Mövenpick Airport Hotel</span><span class="ar" lang="ar" dir="rtl">فندق موفنبيك المطار</span></h3>
+              <span class="site-card__status" id="sc-movenpick-airport-hotel-d"><i data-icon="landscape"></i><span class="en">Landscape</span><span class="ar" lang="ar" dir="rtl">تنسيق المواقع</span></span>
+            </span>
+          </a>
+        </li>
+        <li class="site-card">
+          <a href="#site/la-plage-beach" data-site="la-plage-beach" aria-labelledby="sc-la-plage-beach-t sc-la-plage-beach-3d" aria-describedby="sc-la-plage-beach-d">
+            <span class="site-card__ph"><img src="../../assets/img/projects/la-plage-beach-2-800.webp" width="429" height="206" alt="La Plage Beach lawn with timber walkway and pergolas" data-alt-ar="حديقة شاطئ لا بلاج بممشى خشبي وبرجولات" loading="lazy" decoding="async"></span>
+            <span class="site-card__3d" id="sc-la-plage-beach-3d"><i data-icon="cube"></i>3D</span>
+            <span class="site-card__body">
+              <h3 class="site-card__t" id="sc-la-plage-beach-t"><i data-icon="hospitality"></i><span class="en">La Plage Beach</span><span class="ar" lang="ar" dir="rtl">شاطئ لا بلاج</span></h3>
+              <span class="site-card__status" id="sc-la-plage-beach-d"><i data-icon="landscape"></i><span class="en">Landscape</span><span class="ar" lang="ar" dir="rtl">تنسيق المواقع</span></span>
+            </span>
+          </a>
+        </li>
+        <li class="site-card">
+          <a href="#site/egyptian-rowing-club" data-site="egyptian-rowing-club" aria-labelledby="sc-egyptian-rowing-club-t sc-egyptian-rowing-club-3d" aria-describedby="sc-egyptian-rowing-club-d">
+            <span class="site-card__ph"><img src="../../assets/img/projects/egyptian-rowing-club-1-800.webp" width="419" height="412" alt="Renovated floating clubhouse of the Egyptian Rowing Club" data-alt-ar="المقر العائم المجدَّد للنادي المصري للتجديف" loading="lazy" decoding="async"></span>
+            <span class="site-card__3d" id="sc-egyptian-rowing-club-3d"><i data-icon="cube"></i>3D</span>
+            <span class="site-card__body">
+              <h3 class="site-card__t" id="sc-egyptian-rowing-club-t"><i data-icon="clubs"></i><span class="en">Egyptian Rowing Club</span><span class="ar" lang="ar" dir="rtl">النادي المصري للتجديف</span></h3>
+              <span class="site-card__status" id="sc-egyptian-rowing-club-d"><i data-icon="marine"></i><span class="en">Floating clubhouse</span><span class="ar" lang="ar" dir="rtl">مقر عائم</span></span>
+            </span>
+          </a>
+        </li>
+        <li class="site-card">
+          <a href="#site/banque-misr" data-site="banque-misr" aria-labelledby="sc-banque-misr-t sc-banque-misr-3d" aria-describedby="sc-banque-misr-d">
+            <span class="site-card__ph"><img src="../../assets/img/projects/banque-misr-5-800.webp" width="480" height="319" alt="Glazed Banque Misr office building" data-alt-ar="مبنى بنك مصر الإداري الزجاجي" loading="lazy" decoding="async"></span>
+            <span class="site-card__3d" id="sc-banque-misr-3d"><i data-icon="cube"></i>3D</span>
+            <span class="site-card__body">
+              <h3 class="site-card__t" id="sc-banque-misr-t"><i data-icon="banks"></i><span class="en">Banque Misr</span><span class="ar" lang="ar" dir="rtl">بنك مصر</span></h3>
+              <span class="site-card__status" id="sc-banque-misr-d"><i data-icon="underway"></i><span class="en">Underway</span><span class="ar" lang="ar" dir="rtl">قيد التنفيذ</span></span>
+            </span>
+          </a>
+        </li>
+        <li class="site-card">
+          <a href="#site/abbassia-mental-health-hospital" data-site="abbassia-mental-health-hospital" aria-labelledby="sc-abbassia-mental-health-hospital-t sc-abbassia-mental-health-hospital-3d" aria-describedby="sc-abbassia-mental-health-hospital-d">
+            <span class="site-card__ph"><img src="../../assets/img/projects/abbassia-mental-health-hospital-1-800.webp" width="414" height="411" alt="Renovated Ward 18 at Abbassia hospital" data-alt-ar="العنبر 18 بعد التجديد في مستشفى العباسية" loading="lazy" decoding="async"></span>
+            <span class="site-card__3d" id="sc-abbassia-mental-health-hospital-3d"><i data-icon="cube"></i>3D</span>
+            <span class="site-card__body">
+              <h3 class="site-card__t" id="sc-abbassia-mental-health-hospital-t"><i data-icon="health"></i><span class="en">Abbassia Hospital, Ward 18</span><span class="ar" lang="ar" dir="rtl">مستشفى العباسية – العنبر 18</span></h3>
+              <span class="site-card__status is-done" id="sc-abbassia-mental-health-hospital-d"><i data-icon="status"></i><span class="en">Completed</span><span class="ar" lang="ar" dir="rtl">مكتمل</span></span>
+            </span>
+          </a>
+        </li>
+      </ul>
+      <p class="sites__foot"><a class="xref" href="#r350"><span class="en">All projects</span><span class="ar" lang="ar" dir="rtl">كل المشروعات</span> <span class="sites__arr" aria-hidden="true">→</span></a> <a class="xref" href="#map" data-fallback="#r350"><span class="en">Map</span><span class="ar" lang="ar" dir="rtl">الخريطة</span> <span class="sites__arr" aria-hidden="true">→</span></a></p>
     </section>
 
     <section id="map" class="sheet map-mount" data-map-mount aria-label="Map" data-aria-ar="الخريطة" data-name="Map" data-name-ar="الخريطة" data-icon="map" hidden></section>
@@ -691,7 +581,7 @@
         <ul class="reg__list" data-reg-list></ul>
         <p class="reg__empty" data-reg-empty hidden><span class="en">No project matches. Clear the search or choose All.</span><span class="ar" lang="ar" dir="rtl">لا يوجد مشروع مطابق. امسح البحث أو اختر الكل.</span></p>
         <p class="reg__foot"><button type="button" class="more__btn reg__all" data-reg-all aria-expanded="false"></button><span class="reg__count" aria-live="polite" data-reg-count></span></p>
-        <noscript><p class="reg__count">The project list needs JavaScript. Every featured project is described above.</p></noscript>
+        <noscript><p class="reg__count">The project list needs JavaScript. The main projects are listed above.</p></noscript>
       </div>
     </section>
 
@@ -756,7 +646,6 @@
   <aside class="tblock" aria-label="Current section" data-aria-ar="القسم الحالي">
     <div class="tb tb--brand"><img src="../../assets/brand/logo-mark.svg" width="22" height="24" alt=""><span class="tb__brand">Montaser</span></div>
     <div class="tb tb--title"><span class="tb__v" data-tb="title"></span></div>
-    <div class="tb tb--build" data-tb-build hidden><span class="tb__k"><span class="en">Built</span><span class="ar" lang="ar" dir="rtl">مكتمل</span></span><span class="tb__v" data-tb="build">0%</span></div>
     <div class="tb tb--prog" aria-hidden="true"><span class="tb__bar"><i data-tb="bar"></i></span></div>
   </aside>
 

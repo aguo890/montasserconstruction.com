@@ -1,0 +1,351 @@
+{
+  "version": 1,
+  "generated": "2026-10-12",
+  "note": "AI 3D impressions generated with grok-imagine-3d from site photos. Illustrative, not to scale.",
+  "projects": {
+    "city-club": [
+      {
+        "id": "city-club-4",
+        "photo": "city-club-4",
+        "glb": "models/city-club-4.glb",
+        "kind": "site",
+        "label": {
+          "en": "Aerial site",
+          "ar": "الموقع من أعلى"
+        },
+        "yaw": 165,
+        "bytes": 1920432,
+        "tris": 150000
+      },
+      {
+        "id": "city-club-2",
+        "photo": "city-club-2",
+        "glb": "models/city-club-2.glb",
+        "kind": "scene",
+        "label": {
+          "en": "Sports hall",
+          "ar": "الصالة الرياضية"
+        },
+        "yaw": 310,
+        "bytes": 1600740,
+        "tris": 150000
+      },
+      {
+        "id": "city-club-5",
+        "photo": "city-club-5",
+        "glb": "models/city-club-5.glb",
+        "kind": "scene",
+        "label": {
+          "en": "Swimming pool",
+          "ar": "حمام السباحة"
+        },
+        "yaw": 210,
+        "bytes": 1995132,
+        "tris": 150000
+      }
+    ],
+    "matrouh-stadium": [
+      {
+        "id": "matrouh-stadium-1",
+        "photo": "matrouh-stadium-1",
+        "glb": "models/matrouh-stadium-1.glb",
+        "kind": "site",
+        "label": {
+          "en": "Pitch and stands",
+          "ar": "الملعب والمدرجات"
+        },
+        "yaw": 300,
+        "bytes": 1897592,
+        "tris": 150000
+      }
+    ],
+    "matrouh-university": [
+      {
+        "id": "matrouh-university-2",
+        "photo": "matrouh-university-2",
+        "glb": "models/matrouh-university-2.glb",
+        "kind": "site",
+        "label": {
+          "en": "Aerial campus",
+          "ar": "الحرم من أعلى"
+        },
+        "yaw": 35,
+        "bytes": 3003272,
+        "tris": 150000
+      },
+      {
+        "id": "matrouh-university-1",
+        "photo": "matrouh-university-1",
+        "glb": "models/matrouh-university-1.glb",
+        "kind": "scene",
+        "label": {
+          "en": "Faculty building",
+          "ar": "مبنى الكلية"
+        },
+        "yaw": 305,
+        "bytes": 2095064,
+        "tris": 149998
+      },
+      {
+        "id": "matrouh-university-3",
+        "photo": "matrouh-university-3",
+        "glb": "models/matrouh-university-3.glb",
+        "kind": "scene",
+        "label": {
+          "en": "Council hall",
+          "ar": "قاعة المجلس"
+        },
+        "yaw": 80,
+        "bytes": 1789216,
+        "tris": 150000
+      }
+    ],
+    "el-morsi-abu-el-abbas-mosque-square": [
+      {
+        "id": "el-morsi-abu-el-abbas-mosque-square-1",
+        "photo": "el-morsi-abu-el-abbas-mosque-square-1",
+        "glb": "models/el-morsi-abu-el-abbas-mosque-square-1.glb",
+        "kind": "site",
+        "label": {
+          "en": "Square arcade",
+          "ar": "أروقة الساحة"
+        },
+        "yaw": 210,
+        "bytes": 1969792,
+        "tris": 150000
+      }
+    ],
+    "coral-beach-village": [
+      {
+        "id": "coral-beach-village-2",
+        "photo": "coral-beach-village-2",
+        "glb": "models/coral-beach-village-2.glb",
+        "kind": "site",
+        "label": {
+          "en": "Resort pool",
+          "ar": "حمام القرية"
+        },
+        "yaw": 310,
+        "bytes": 2496912,
+        "tris": 149999
+      }
+    ],
+    "faragello-cake-factory": [
+      {
+        "id": "faragello-cake-factory-1",
+        "photo": "faragello-cake-factory-1",
+        "glb": "models/faragello-cake-factory-1.glb",
+        "kind": "site",
+        "label": {
+          "en": "Factory site",
+          "ar": "موقع المصنع"
+        },
+        "yaw": 30,
+        "bytes": 1731968,
+        "tris": 150000
+      }
+    ],
+    "beyti-almarai-factory": [
+      {
+        "id": "beyti-almarai-factory-1",
+        "photo": "beyti-almarai-factory-1",
+        "glb": "models/beyti-almarai-factory-1.glb",
+        "kind": "site",
+        "label": {
+          "en": "Plant room",
+          "ar": "غرفة المعدات"
+        },
+        "yaw": 0,
+        "bytes": 2190200,
+        "tris": 149999
+      }
+    ],
+    "suez-stadium": [
+      {
+        "id": "suez-stadium-2",
+        "photo": "suez-stadium-2",
+        "glb": "models/suez-stadium-2.glb",
+        "kind": "site",
+        "label": {
+          "en": "Stadium bowl",
+          "ar": "الملعب والمدرجات"
+        },
+        "yaw": 165,
+        "bytes": 2890388,
+        "tris": 149999
+      }
+    ],
+    "aswan-stadium": [
+      {
+        "id": "aswan-stadium-3",
+        "photo": "aswan-stadium-3",
+        "glb": "models/aswan-stadium-3.glb",
+        "kind": "site",
+        "label": {
+          "en": "Covered stand",
+          "ar": "المدرج المغطى"
+        },
+        "yaw": 0,
+        "bytes": 2341528,
+        "tris": 149999
+      }
+    ],
+    "el-hadaf-training-center": [
+      {
+        "id": "el-hadaf-training-center-2",
+        "photo": "el-hadaf-training-center-2",
+        "glb": "models/el-hadaf-training-center-2.glb",
+        "kind": "site",
+        "label": {
+          "en": "Training pitches",
+          "ar": "ملاعب التدريب"
+        },
+        "yaw": 90,
+        "bytes": 2060368,
+        "tris": 149999
+      }
+    ],
+    "tivoli-dome": [
+      {
+        "id": "tivoli-dome-1",
+        "photo": "tivoli-dome-1",
+        "glb": "models/tivoli-dome-1.glb",
+        "kind": "site",
+        "label": {
+          "en": "Lake terraces",
+          "ar": "تراسات البحيرة"
+        },
+        "yaw": 80,
+        "bytes": 2524140,
+        "tris": 149999
+      }
+    ],
+    "movenpick-airport-hotel": [
+      {
+        "id": "movenpick-airport-hotel-1",
+        "photo": "movenpick-airport-hotel-1",
+        "glb": "models/movenpick-airport-hotel-1.glb",
+        "kind": "site",
+        "label": {
+          "en": "Hotel entrance",
+          "ar": "مدخل الفندق"
+        },
+        "yaw": 125,
+        "bytes": 2224916,
+        "tris": 149999
+      },
+      {
+        "id": "movenpick-airport-hotel-2",
+        "photo": "movenpick-airport-hotel-2",
+        "glb": "models/movenpick-airport-hotel-2.glb",
+        "kind": "scene",
+        "label": {
+          "en": "Pool terrace",
+          "ar": "تراس حمام السباحة"
+        },
+        "yaw": 65,
+        "bytes": 2139092,
+        "tris": 149999
+      }
+    ],
+    "la-plage-beach": [
+      {
+        "id": "la-plage-beach-2",
+        "photo": "la-plage-beach-2",
+        "glb": "models/la-plage-beach-2.glb",
+        "kind": "site",
+        "label": {
+          "en": "Lawn and pergolas",
+          "ar": "الحديقة والمظلات"
+        },
+        "yaw": 135,
+        "bytes": 2570928,
+        "tris": 149999
+      },
+      {
+        "id": "la-plage-beach-1",
+        "photo": "la-plage-beach-1",
+        "glb": "models/la-plage-beach-1.glb",
+        "kind": "scene",
+        "label": {
+          "en": "Shade lawn",
+          "ar": "مظلات الحديقة"
+        },
+        "yaw": 215,
+        "bytes": 2053336,
+        "tris": 109998
+      }
+    ],
+    "egyptian-rowing-club": [
+      {
+        "id": "egyptian-rowing-club-1",
+        "photo": "egyptian-rowing-club-1",
+        "glb": "models/egyptian-rowing-club-1.glb",
+        "kind": "site",
+        "label": {
+          "en": "Floating clubhouse",
+          "ar": "المقر العائم"
+        },
+        "yaw": 305,
+        "bytes": 2832104,
+        "tris": 149999
+      },
+      {
+        "id": "egyptian-rowing-club-2",
+        "photo": "egyptian-rowing-club-2",
+        "glb": "models/egyptian-rowing-club-2.glb",
+        "kind": "scene",
+        "label": {
+          "en": "Deck terrace",
+          "ar": "التراس الخشبي"
+        },
+        "yaw": 90,
+        "bytes": 2092768,
+        "tris": 149999
+      }
+    ],
+    "banque-misr": [
+      {
+        "id": "banque-misr-5",
+        "photo": "banque-misr-5",
+        "glb": "models/banque-misr-5.glb",
+        "kind": "site",
+        "label": {
+          "en": "Office block",
+          "ar": "المبنى الإداري"
+        },
+        "yaw": 45,
+        "bytes": 2328496,
+        "tris": 149999
+      }
+    ],
+    "abbassia-mental-health-hospital": [
+      {
+        "id": "abbassia-mental-health-hospital-1",
+        "photo": "abbassia-mental-health-hospital-1",
+        "glb": "models/abbassia-mental-health-hospital-1.glb",
+        "kind": "site",
+        "label": {
+          "en": "Ward building",
+          "ar": "مبنى العنبر"
+        },
+        "yaw": 155,
+        "bytes": 2171640,
+        "tris": 149999
+      },
+      {
+        "id": "abbassia-mental-health-hospital-2",
+        "photo": "abbassia-mental-health-hospital-2",
+        "glb": "models/abbassia-mental-health-hospital-2.glb",
+        "kind": "scene",
+        "label": {
+          "en": "Entrance terrace",
+          "ar": "تراس المدخل"
+        },
+        "yaw": 0,
+        "bytes": 1825012,
+        "tris": 150000
+      }
+    ]
+  }
+}

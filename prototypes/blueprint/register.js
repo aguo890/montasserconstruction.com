@@ -3,6 +3,7 @@
 import { PROJECTS } from './projects.js';
 import { icon } from './icons.js';
 import { setOpen } from './disclose.js';
+import { siteIdForProject } from './site/sites.js';
 
 const PREVIEW = 8;
 const IMG = '../../assets/img/projects/';
@@ -23,16 +24,12 @@ const STATUS = {
   conflict: { icon: 'underway', en: 'To confirm', ar: 'للتأكيد' },
   unstated: { icon: 'status', en: 'Not stated', ar: 'غير مذكور' },
 };
-const FEATURED = {
-  'city-club': 'p301', 'matrouh-stadium': 'p302', 'matrouh-university': 'p303', 'el-morsi-abu-el-abbas-mosque-square': 'p304',
-  'coral-beach-village': 'p305', 'beyti-almarai-factory': 'p306', 'aquafac-factory': 'p306', 'faragello-cake-factory': 'p306',
-};
 const T = {
   all: { en: 'All', ar: 'الكل' },
   showAll: { en: 'Show all', ar: 'اعرض الكل' },
   showLess: { en: 'Show fewer', ar: 'اعرض أقل' },
   matches: { en: (n) => `${n} found`, ar: (n) => `${n} نتيجة` },
-  open: { en: 'See the project →', ar: 'شاهد المشروع ←' },
+  view3d: { en: 'View in 3D: ', ar: 'عرض ثلاثي الأبعاد: ' },
   status: { en: 'Status as printed', ar: 'الموقف كما ورد' },
   differ: { en: 'The profile gives two statuses.', ar: 'يذكر ملف الشركة حالتين مختلفتين.' },
   enlarge: { en: 'Enlarge photo: ', ar: 'تكبير الصورة: ' },
@@ -53,10 +50,18 @@ const NOT_STATED = 'Not stated';
 // Branches follow every top-level entry, so the first rows are the showcased projects.
 const ORDERED = [...PROJECTS.filter((p) => !p.parent), ...PROJECTS.filter((p) => p.parent)];
 
+/** The small "3D" link that opens the project's site view (site/), for projects that belong to a site. */
+function view3dHtml(p) {
+  const site = siteIdForProject(p.id);
+  if (!site) return '';
+  const label = { en: `${T.view3d.en}${p.t.en}`, ar: `${T.view3d.ar}${p.t.ar}` };
+  const l = root.lang === 'ar' ? 'ar' : 'en';
+  return `<a class="reg__3d" href="#site/${site}" data-site="${site}" aria-label="${esc(label[l])}" data-aria-en="${esc(label.en)}" data-aria-ar="${esc(label.ar)}">${icon('cube')}3D</a>`;
+}
+
 function rowHtml(p) {
   const st = STATUS[p.st];
   const meta = [p.c, p.l].filter((x) => x.en !== NOT_STATED).map(bi).join('<i aria-hidden="true"> · </i>');
-  const go = FEATURED[p.id] ? `<a class="xref" href="#${FEATURED[p.id]}">${bi(T.open)}</a>` : '';
   const note = p.st === 'conflict' ? `<p class="reg__note">${bi(T.differ)}</p>` : '';
   const sc = p.sc ? `<p>${bi(p.sc)}</p>` : '';
   const l = root.lang === 'ar' ? 'ar' : 'en';
@@ -65,10 +70,10 @@ function rowHtml(p) {
       <button type="button" class="reg__name" aria-expanded="false" aria-controls="reg-${p.id}">
         ${icon(SECTORS.find((s) => s.key === p.sec).icon, 'ico reg__ico')}<span class="reg__t">${bi(p.t)}</span>
         <span class="reg__st reg__st--${p.st}">${icon(st.icon)}${bi(st)}</span>
-      </button>
+      </button>${view3dHtml(p)}
       <div class="reg__detail more__panel" id="reg-${p.id}" hidden>
         ${meta ? `<p class="reg__meta">${meta}</p>` : ''}${sc}
-        <p class="reg__meta"><b>${bi(T.status)}:</b> ${bi(p.s)}</p>${note}${photos}${go}
+        <p class="reg__meta"><b>${bi(T.status)}:</b> ${bi(p.s)}</p>${note}${photos}
       </div>
     </li>`;
 }

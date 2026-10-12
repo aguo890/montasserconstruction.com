@@ -1,6 +1,6 @@
 // Supporting drawings: cover cube, Montaser + Diwan joint, phases,
-// detail sketches, the desalination schematic and the long elevation.
-import { g, line, rect, circle, path, poly, text, dimV, leader, north, iso, tree, palm, defs, url } from './kit.js';
+// the desalination schematic and the long elevation.
+import { g, line, rect, circle, path, poly, text, dimV, leader, north, iso, tree, defs, url } from './kit.js';
 
 /* ---------- Cover: the logo mark as an axonometric construction ---------- */
 
@@ -153,46 +153,6 @@ export function phase(n) {
     g('grp', line(flag[0], flag[1], flag[0], flag[1] - 40, 'l1 d') + poly([[flag[0], flag[1] - 40], [flag[0] + 22, flag[1] - 33], [flag[0], flag[1] - 26]], 'fill-red') +
       tree(...P(W + 1, D + 0.4, 0), 10) + tree(...P(-0.6, D + 1, 0), 9) + tree(...P(W + 1.2, -0.6, 0), 8), 'style="--g:1"');
 }
-
-/* ---------- More projects: detail sketches (320 × 200) ---------- */
-
-const GL = 176;
-const groundLine = () => line(10, GL, 310, GL, 'l3 d');
-
-export const DETAILS = {
-  hadaf: () => text(85, 26, 'PITCHES', 't t-sub', 'middle') + rect(20, 30, 130, 84, 'l2 d') + line(85, 30, 85, 114, 'l1 d') + circle(85, 72, 14, 'l1 d') +
-    rect(170, 30, 130, 84, 'l2 d') + line(235, 30, 235, 114, 'l1 d') + circle(235, 72, 14, 'l1 d') +
-    rect(40, 128, 120, 40, 'l3 d') + rect(180, 128, 100, 40, 'l3 d') + [[14, 24], [306, 24], [14, 120], [306, 120]].map(([x, y]) => circle(x, y, 4, 'l1 d')).join(''),
-  banque: () => text(266, 64, 'CURTAIN WALL', 't t-sub', 'middle') + groundLine() + rect(110, 24, 110, GL - 24, 'l3 d') +
-    Array.from({ length: 6 }, (_, i) => line(110 + (i + 1) * 15.7, 24, 110 + (i + 1) * 15.7, GL - 26, 'l0 d')).join('') +
-    Array.from({ length: 9 }, (_, i) => line(110, 40 + i * 14, 220, 40 + i * 14, 'l0 d')).join('') +
-    rect(140, GL - 26, 50, 26, 'l2 d') + line(124, GL - 30, 206, GL - 30, 'l2 d') + line(220, 70, 260, 70, 'l1 d') + rect(220, 70, 40, GL - 70, 'l2 d'),
-  abbassia: () => text(110, 30, 'WARD 18', 't t-sub', 'middle') + rect(30, 40, 260, 100, 'l3 d') + line(30, 90, 200, 90, 'l1 d') + line(200, 40, 200, 140, 'l1 d') +
-    [40, 72, 104, 136, 168].map((x) => rect(x, 48, 20, 32, 'l1 d') + rect(x, 100, 20, 32, 'l1 d')).join('') +
-    Array.from({ length: 7 }, (_, i) => line(210 + i * 12, 150, 210 + i * 12, 186, 'l0 d')).join('') + rect(206, 150, 80, 36, 'l1 d'),
-  alexeng: () => text(140, 10, 'IN DEVELOPMENT', 't t-sub', 'middle') + groundLine() + rect(60, 96, 160, GL - 96, 'l3 d') + rect(60, 56, 160, 40, 'l1 dash') + rect(60, 16, 160, 40, 'l1 dash') +
-    line(250, GL, 250, 12, 'l2 d') + line(232, 22, 310, 22, 'l2 d') + line(250, 12, 300, 22, 'l0 d') + line(290, 22, 290, 64, 'l0 d') + rect(282, 64, 16, 8, 'l1 d') +
-    Array.from({ length: 4 }, (_, i) => rect(76 + i * 36, 112, 20, 20, 'l1 d')).join(''),
-  suez: () => text(254, 22, 'LED SCREEN', 't t-sub', 'middle') + groundLine() + path(`M30 ${GL} V150 H60 V132 H90 V114 H120 V96 H150 V78 H180 V60 H200 V${GL}`, 'l3 d') +
-    line(230, GL, 230, 40, 'l2 d') + rect(214, 30, 80, 46, 'l2 d') + Array.from({ length: 4 }, (_, i) => line(214, 41 + i * 9, 294, 41 + i * 9, 'l0 d')).join(''),
-  aswan: () => text(110, 26, 'STAND ROOF', 't t-sub', 'middle') + groundLine() + path(`M40 ${GL} V150 H70 V132 H100 V114 H130 V96 H160 V78 H190 V${GL}`, 'l3 d') +
-    line(190, GL, 190, 30, 'l3 d') + path('M200 30 L40 46', 'l3 d') + line(190, 30, 120, 40, 'l1 d') + line(240, GL, 240, 110, 'l1 d') + rect(250, 140, 50, 36, 'l1 d'),
-  tivoli: () => text(165, 100, 'LAKE', 't t-sub', 'middle') + path('M100 70 C130 40 210 44 230 74 C252 104 226 140 180 144 C128 148 80 120 100 70 Z', 'l3 d') +
-    [[150, 90], [180, 104], [200, 84], [160, 120]].map(([x, y]) => circle(x, y, 5, 'l1 d')).join('') +
-    Array.from({ length: 12 }, (_, i) => {
-      const a = (i / 12) * Math.PI * 2;
-      return rect(165 + Math.cos(a) * 118 - 12, 96 + Math.sin(a) * 78 - 9, 24, 18, 'l2 d');
-    }).join(''),
-  movenpick: () => text(150, 22, 'ENTRANCE CANOPY', 't t-sub', 'middle') + groundLine() + rect(60, 70, 180, 10, 'l3 d') + line(80, 80, 80, GL, 'l2 d') + line(220, 80, 220, GL, 'l2 d') +
-    line(150, 80, 150, GL, 'l1 d') + rect(20, 30, 290, 40, 'l1 d') + palm(270, 120, 18) + palm(30, 120, 16) + path('M10 186 C80 170 220 170 310 186', 'l1 dash'),
-  laplage: () => text(150, 22, 'PERGOLAS · WALKWAY', 't t-sub', 'middle') + rect(20, 30, 280, 140, 'l1 d') + path('M30 150 C90 110 160 140 290 60', 'l3 d') + path('M30 162 C90 122 160 152 290 72', 'l3 d') +
-    [[60, 50], [120, 50], [180, 110], [240, 120]].map(([x, y]) => rect(x, y, 36, 36, 'l2 d') + line(x, y, x + 36, y + 36, 'l0 d') + line(x + 36, y, x, y + 36, 'l0 d')).join('') +
-    rect(250, 40, 40, 26, 'l2 d'),
-  rowing: () => text(160, 184, 'FLOATING CLUBHOUSE', 't t-sub', 'middle') + path('M10 150 q15 -8 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0', 'l1 d') +
-    rect(40, 136, 240, 18, 'l3 d') + rect(60, 86, 200, 50, 'l3 d') + rect(80, 60, 120, 26, 'l1 d') +
-    Array.from({ length: 6 }, (_, i) => line(80 + i * 24, 40, 80 + i * 24, 60, 'l0 d')).join('') + line(76, 40, 204, 40, 'l2 d') +
-    circle(230, 110, 12, 'l2 d') + Array.from({ length: 5 }, (_, i) => rect(76 + i * 26, 100, 16, 18, 'l1 d')).join(''),
-};
 
 /* ---------- Water: typical desalination and reuse schematic (1200 × 520) ---------- */
 

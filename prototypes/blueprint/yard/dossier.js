@@ -1,4 +1,4 @@
-// Project dossier: the full record in a modal sheet (owner, place, facts, scope, real photos, prev/next and "View project").
+// Project dossier: the full record in a modal sheet (owner, place, facts, scope, real photos, prev/next and "View in 3D").
 
 import { PROJECTS, SECTORS } from './data.js';
 import { icon } from './icons.js';
@@ -27,7 +27,7 @@ function render(p, index, total) {
   const alt = p.t[otherLang()];
   const who = whoLine(p);
   const note = p.note ? `<p class="yd-dz__note">${say(p.note)}</p>` : '';
-  const view = p.section ? `<button class="yd-act yd-act--solid" type="button" data-dz-view="${p.section}"><span>${say(T.view)}</span>${icon('arrow', 'yd-flip')}</button>` : '';
+  const view = p.site ? `<button class="yd-act yd-act--solid" type="button" data-dz-view="${p.site}"><span>${say(T.view)}</span>${icon('arrow', 'yd-flip')}</button>` : '';
   const nav = total > 1
     ? `<div class="yd-dz__nav"><button class="yd-step" type="button" data-dz-step="-1" aria-label="${esc(tr(T.prev))}">${icon('arrow', 'yd-flip yd-back')}</button><button class="yd-step" type="button" data-dz-step="1" aria-label="${esc(tr(T.next))}">${icon('arrow', 'yd-flip')}</button></div>`
     : '';
