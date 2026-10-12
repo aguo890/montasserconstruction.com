@@ -1,5 +1,6 @@
 // The model manifest (site/models.json, written by the asset pipeline) and the scenes it gives a site.
 // Keys are project ids; each list starts with the site model. Missing projects fall back to a photo.
+// An entry may add a high-quality file (hq) and the preview's world bounds (bbox) so both share one frame.
 import { photoByBase, photosOf } from './sites.js';
 
 const MANIFEST_URL = new URL('./models.json', import.meta.url);
@@ -18,19 +19,29 @@ export function loadManifest() {
   return manifest;
 }
 
+const resolve = (path) => (path ? new URL(path, MANIFEST_URL).href : null);
+
+/** A bbox is usable when both corners are three finite numbers. */
+function readBox(bbox) {
+  const isCorner = (c) => Array.isArray(c) && c.length === 3 && c.every(Number.isFinite);
+  return bbox && isCorner(bbox.min) && isCorner(bbox.max) ? { min: bbox.min, max: bbox.max } : null;
+}
+
 function toScene(site, entry) {
   return {
     id: entry.id,
     kind: entry.kind || 'scene',
     label: entry.label || site.title,
     photo: photoByBase(site, entry.photo),
-    glb: entry.glb ? new URL(entry.glb, MANIFEST_URL).href : null,
+    glb: resolve(entry.glb),
+    hq: entry.glb ? resolve(entry.hq) : null,
+    bbox: readBox(entry.bbox),
     yaw: Number(entry.yaw) || 0,
   };
 }
 
 function photoScene(site) {
-  return { id: `${site.id}-photo`, kind: 'photo', label: site.title, photo: photosOf(site)[0], glb: null, yaw: 0 };
+  return { id: `${site.id}-photo`, kind: 'photo', label: site.title, photo: photosOf(site)[0], glb: null, hq: null, bbox: null, yaw: 0 };
 }
 
 /** The site's scenes: up to three manifest entries in order, or one photo scene when none exist yet. */

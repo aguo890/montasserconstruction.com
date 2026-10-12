@@ -1,15 +1,20 @@
 // The site view: a full-screen native <dialog> with the 3D stage (about two thirds) and the info panel.
 // Opening pushes #site/<id>; Back or close returns to the page; prev/next replace the hash. The stage
-// opens on the card's photo in navy duotone, which fades as the drawing appears and the construction
-// scan builds the model. Without WebGL2, on a load error or without a manifest entry the stage shows
-// the scene's photo instead, so it is never blank.
+// opens on the card's photo in navy duotone, which fades into the site plan; the build then runs Plan →
+// Drawing → Print → Built, with a stage ticker that also moves between the stages. Full screen and "Hide
+// details" make the stage immersive. Without WebGL2, on a load error or without a manifest entry the stage
+// shows the scene's photo instead, so it is never blank.
 import { getLang, setLang } from '../lang.js';
 import { initDisclosures } from '../disclose.js';
 import { SITES, getSite, photosOf, siteIndex } from './sites.js';
 import { loadManifest, scenesFor } from './models.js';
-import { frameHtml, infoHtml, railHtml, stageLabel } from './panel.js';
+import { LABELS, frameHtml, infoHtml, railHtml, stageLabel } from './panel.js';
 
 const MIN_PHOTO_MS = 420;
+const STAGE_BUTTONS = 4;
+const FULLSCREEN_ESC_GUARD_MS = 400;
+const PRELOAD_RETRY_MS = 500;
+const NARROW = '(max-width: 860px)';
 const LOADING_DELAY_MS = 400;
 const HISTORY_SETTLE_MS = 600;
 const ROTATE_STEP = 12;
@@ -24,6 +29,7 @@ const s = {
   dlg: null, el: {}, site: null, scenes: [], scene: 0, token: 0,
   opener: null, didPush: false, fromHistory: false, keepFocus: false,
   stage: null, stagePromise: null, stageFailed: false, photoAt: 0, hintShown: false,
+  isWide: false, wasFullscreen: false, fullscreenExitAt: -Infinity,
 };
 
 const hashUrl = (id) => `${location.pathname}${location.search}#site/${encodeURIComponent(id)}`;
@@ -43,7 +49,7 @@ async function getStage() {
   if (s.stage) return s.stage.isLost() ? null : s.stage;
   const mod = await loadStage();
   if (!mod || s.stageFailed) return null;
-  s.stage = mod.createStage(s.el.gl, { isReduced, onLost: onContextLost });
+  s.stage = mod.createStage(s.el.gl, { isReduced, onLost: onContextLost, onProgress: syncTicker });
   if (!s.stage) s.stageFailed = true;
   return s.stage;
 }
@@ -59,10 +65,11 @@ export function prefetch() {
 function query(dlg) {
   const q = (sel) => dlg.querySelector(sel);
   return {
-    stageBox: q('[data-site-stage]'), gl: q('[data-site-gl]'), photo: q('[data-site-photo]'), img: q('[data-site-photo] img'),
-    load: q('[data-site-load]'), pct: q('[data-site-pct]'), ctl: q('[data-site-ctl]'), hint: q('[data-site-hint]'),
+    frame: q('.site__frame'), stageBox: q('[data-site-stage]'), gl: q('[data-site-gl]'), photo: q('[data-site-photo]'), img: q('[data-site-photo] img'),
+    load: q('[data-site-load]'), pct: q('[data-site-pct]'), ctl3d: q('[data-site-ctl3d]'), hint: q('[data-site-hint]'),
     rail: q('[data-site-rail]'), note: q('[data-site-note]'), fallback: q('[data-site-fallback]'),
     info: q('[data-site-info]'), count: q('[data-site-count]'), lang: q('[data-site-lang]'),
+    builds: [...dlg.querySelectorAll('[data-site-build]')], fullscreen: q('[data-site-fs]'), details: q('[data-site-details]'),
   };
 }
 
@@ -77,6 +84,8 @@ function ensureDialog() {
   s.el = query(dlg);
   bindDialog(dlg);
   syncLangButton();
+  s.el.fullscreen.hidden = !canFullscreen();
+  setDetails(!s.isWide);
   return dlg;
 }
 
@@ -119,11 +128,11 @@ function setLoading(fraction) {
 
 /** 'loading', '3d' or 'fallback'. Only the 3D view is an interactive, labelled application. */
 function setStageMode(mode) {
-  const { stageBox, gl, ctl, fallback, hint } = s.el;
+  const { stageBox, gl, ctl3d, fallback, hint } = s.el;
   const is3d = mode === '3d';
   stageBox.classList.toggle('is-fallback', mode === 'fallback');
   stageBox.classList.toggle('is-3d', is3d);
-  ctl.hidden = !is3d;
+  ctl3d.hidden = !is3d;
   fallback.hidden = mode !== 'fallback';
   if (!is3d) hint.hidden = true;
   if (is3d) {
@@ -148,9 +157,15 @@ function showFallback(scene) {
   setStageMode('fallback');
 }
 
-function syncModeButtons(isBuilt) {
-  s.dlg.querySelectorAll('[data-site-mode]').forEach((b) => {
-    b.setAttribute('aria-pressed', String((b.dataset.siteMode === 'built') === isBuilt));
+/** The stage ticker: the live stage is highlighted, each button fills with its stage's progress, and the
+ *  stage the build is heading for (or holding at) is pressed. */
+function syncTicker(p, target) {
+  const live = Math.min(STAGE_BUTTONS - 1, Math.max(0, Math.ceil(p) - 1));
+  s.el.builds.forEach((b, i) => {
+    b.style.setProperty('--p', Math.min(1, Math.max(0, p - i)).toFixed(3));
+    b.classList.toggle('is-now', i === live);
+    const pressed = String(i === target - 1);
+    if (b.getAttribute('aria-pressed') !== pressed) b.setAttribute('aria-pressed', pressed);
   });
 }
 
@@ -174,10 +189,9 @@ async function showScene(index, mode, { keepPhoto = false } = {}) {
   try {
     const model = await stage.load(scene, { onProgress: (f) => { if (token === s.token) setLoading(f); } });
     if (token !== s.token) return;
-    await wait(Math.max(0, MIN_PHOTO_MS - (performance.now() - s.photoAt)));
+    await Promise.all([stage.prepare(model), wait(Math.max(0, MIN_PHOTO_MS - (performance.now() - s.photoAt)))]);
     if (token !== s.token || !s.dlg.open) return;
-    stage.present(model, scene.glb, mode);
-    syncModeButtons(true);
+    stage.present(model, scene, { mode, title: s.site.title });
     setStageMode('3d');
     hidePhoto();
     showHint();
@@ -190,11 +204,18 @@ async function showScene(index, mode, { keepPhoto = false } = {}) {
   }
 }
 
+/** Preloads the next scene's preview once the build has settled, so its parse never lands mid-sequence. */
 function preloadNext(stage) {
   const next = s.scenes[s.scene + 1];
   if (!next?.glb) return;
+  const token = s.token;
   const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 1200));
-  idle(() => { if (s.dlg.open) stage.preload(next); }, { timeout: 4000 });
+  const attempt = () => {
+    if (token !== s.token || !s.dlg.open) return;
+    if (stage.isBusy()) { setTimeout(attempt, PRELOAD_RETRY_MS); return; }
+    idle(() => { if (token === s.token && s.dlg.open) stage.preload(next); }, { timeout: 4000 });
+  };
+  attempt();
 }
 
 function showHint() {
@@ -277,6 +298,7 @@ function restoreFocus() {
 function onClosed() {
   s.token += 1;
   s.stage?.pause();
+  if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
   setLoading(null);
   root.classList.remove('is-site-open');
   if (!s.fromHistory) {
@@ -314,6 +336,48 @@ async function findInAllProjects() {
   document.dispatchEvent(new CustomEvent('bp:find', { detail: { id } }));
 }
 
+/* ---------- immersion: full screen and the details panel ---------- */
+
+// A <dialog> itself may not go full screen (Fullscreen spec), so its frame does.
+const canFullscreen = () => Boolean(document.fullscreenEnabled && s.el.frame?.requestFullscreen);
+
+function toggleFullscreen() {
+  if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+  else s.el.frame.requestFullscreen().catch((err) => console.warn('Full screen is unavailable.', err));
+}
+
+function syncFullscreen() {
+  if (!s.dlg) return;
+  const isFull = document.fullscreenElement === s.el.frame;
+  if (s.wasFullscreen && !isFull) s.fullscreenExitAt = performance.now();
+  s.wasFullscreen = isFull;
+  s.el.fullscreen.setAttribute('aria-pressed', String(isFull));
+  setAria(s.el.fullscreen, isFull ? LABELS.exitFullscreen : LABELS.fullscreen);
+}
+
+/** Escape leaves full screen first; the same key press must not also close the dialog. */
+function onCancel(e) {
+  if (document.fullscreenElement || performance.now() - s.fullscreenExitAt < FULLSCREEN_ESC_GUARD_MS) e.preventDefault();
+}
+
+function onEscapeInFullscreen(e) {
+  if (e.key !== 'Escape' || !document.fullscreenElement) return;
+  e.preventDefault();
+  e.stopPropagation();
+  document.exitFullscreen().catch(() => {});
+}
+
+/** Shows or hides the info panel (desktop); the stage widens and the renderer follows every frame. */
+function setDetails(isShown) {
+  const canHide = !matchMedia(NARROW).matches;
+  const isWide = canHide && !isShown;
+  s.isWide = isWide;
+  s.dlg.classList.toggle('is-wide', isWide);
+  s.el.info.inert = isWide;
+  s.el.details.setAttribute('aria-expanded', String(!isWide));
+  setAria(s.el.details, isWide ? LABELS.showDetails : LABELS.hideDetails);
+}
+
 /* ---------- input ---------- */
 
 const KEYS = {
@@ -337,7 +401,9 @@ function onDialogClick(e) {
   if (!t) return;
   if (t.matches('[data-site-close]')) s.dlg.close();
   else if (t.matches('[data-site-step]')) step(Number(t.dataset.siteStep));
-  else if (t.matches('[data-site-mode]')) { const built = t.dataset.siteMode === 'built'; s.stage?.setBuilt(built); syncModeButtons(built); }
+  else if (t.matches('[data-site-build]')) s.stage?.goToStage(Number(t.dataset.siteBuild));
+  else if (t.matches('[data-site-fs]')) toggleFullscreen();
+  else if (t.matches('[data-site-details]')) setDetails(s.isWide);
   else if (t.matches('[data-site-reset]')) s.stage?.resetView();
   else if (t.matches('[data-site-scene]')) { const i = Number(t.dataset.siteScene); if (i !== s.scene) showScene(i, 'switch'); }
   else if (t.matches('[data-site-photos]')) s.el.info.querySelector('.site__thumbs [data-lightbox]')?.click();
@@ -345,7 +411,9 @@ function onDialogClick(e) {
   else if (t.matches('[data-site-lang]')) setLang(getLang() === 'ar' ? 'en' : 'ar');
 }
 
-function skipSequence() {
+/** Any input on the stage skips a running build to its end; the stage controls decide for themselves. */
+function skipSequence(e) {
+  if (e.target.closest?.('[data-site-ctl]')) return;
   if (s.stage?.isBusy()) s.stage.skip();
   s.el.hint.hidden = true;
 }
@@ -358,14 +426,19 @@ function onLangChange() {
   const photo = s.scenes[s.scene]?.photo;
   if (photo) s.el.img.alt = photo.alt[getLang()];
   if (s.el.stageBox.classList.contains('is-3d')) setAria(s.el.gl, stageLabel(s.site));
+  s.stage?.relabel();
 }
 
 function bindDialog(dlg) {
   dlg.addEventListener('click', onDialogClick);
   dlg.addEventListener('close', onClosed);
+  dlg.addEventListener('cancel', onCancel);
   s.el.gl.addEventListener('keydown', onStageKey);
   ['pointerdown', 'wheel'].forEach((type) => s.el.stageBox.addEventListener(type, skipSequence, { capture: true, passive: true }));
-  dlg.addEventListener('keydown', (e) => { if (e.key !== 'Escape' && e.key !== 'Tab') skipSequence(); }, true);
+  dlg.addEventListener('keydown', onEscapeInFullscreen, true);
+  dlg.addEventListener('keydown', (e) => { if (e.key !== 'Escape' && e.key !== 'Tab') skipSequence(e); }, true);
+  document.addEventListener('fullscreenchange', syncFullscreen);
+  matchMedia(NARROW).addEventListener('change', () => setDetails(!s.isWide));
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) s.stage?.pause();
     else if (dlg.open) s.stage?.resume();

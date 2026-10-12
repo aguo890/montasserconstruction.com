@@ -1,4 +1,6 @@
-// Camera poses (spherical, around the model's vertical axis) and a small time-based tween runner.
+// Camera poses (spherical around the model's vertical axis, with a field of view) and a small time-based tween
+// runner. Blending two poses keeps the framed size continuous while the field of view changes, so the narrow,
+// near-orthographic plan view opens into the axonometric without a zoom jolt.
 import { MathUtils, Spherical, Vector3 } from 'three';
 
 export const FOV = 35;
@@ -6,24 +8,32 @@ const AZIMUTH_DEG = 35;
 const ELEVATION_DEG = 28;
 const FIT_MARGIN = 1.15;
 const deg = MathUtils.degToRad;
+const halfTan = (fov) => Math.tan(deg(fov / 2));
 
 export const EASE = {
   linear: (t) => t,
+  inCubic: (t) => t * t * t,
   outCubic: (t) => 1 - (1 - t) ** 3,
   inOutCubic: (t) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2),
   inOutSine: (t) => -(Math.cos(Math.PI * t) - 1) / 2,
 };
 
-/** Distance at which a sphere of this radius fits the view with a 15% margin. */
-export function fitDistance(radius, camera) {
-  const half = deg(camera.fov / 2);
+/** Distance at which a sphere of this radius fits the view with a 15% margin, at the given field of view. */
+export function fitDistance(radius, camera, fov = camera.fov) {
+  const half = deg(fov / 2);
   const horizontal = Math.atan(Math.tan(half) * camera.aspect);
   return (radius * FIT_MARGIN) / Math.sin(Math.min(half, horizontal));
 }
 
+/** Distance at which a flat width × depth sheet seen from straight above fills the view, with a margin. */
+export function fitSheetDistance([width, depth], camera, fov, margin) {
+  const tan = halfTan(fov);
+  return (Math.max(depth / 2, width / 2 / camera.aspect) * margin) / tan;
+}
+
 /** The default view: azimuth +35° (from +Z toward +X), elevation 28°, looking at the model centre. */
 export function defaultPose(distance, centreY) {
-  return { theta: deg(AZIMUTH_DEG), phi: deg(90 - ELEVATION_DEG), radius: distance, y: centreY };
+  return { theta: deg(AZIMUTH_DEG), phi: deg(90 - ELEVATION_DEG), radius: distance, y: centreY, fov: FOV };
 }
 
 /** The same pose moved by degrees of azimuth and elevation and scaled in distance. */
@@ -39,22 +49,29 @@ export function applyPose(camera, target, pose) {
   sph.set(pose.radius, pose.phi, pose.theta);
   camera.position.copy(target).add(offset.setFromSpherical(sph));
   camera.lookAt(target);
+  if (pose.fov !== camera.fov) {
+    camera.fov = pose.fov;
+    camera.updateProjectionMatrix();
+  }
 }
 
 export function readPose(camera, target) {
   sph.setFromVector3(offset.copy(camera.position).sub(target));
-  return { theta: sph.theta, phi: sph.phi, radius: sph.radius, y: target.y };
+  return { theta: sph.theta, phi: sph.phi, radius: sph.radius, y: target.y, fov: camera.fov };
 }
 
 export function mixPose(a, b, t) {
   let dTheta = (b.theta - a.theta) % (Math.PI * 2);
   if (dTheta > Math.PI) dTheta -= Math.PI * 2;
   if (dTheta < -Math.PI) dTheta += Math.PI * 2;
+  const fov = MathUtils.lerp(a.fov, b.fov, t);
+  const framed = MathUtils.lerp(a.radius * halfTan(a.fov), b.radius * halfTan(b.fov), t);
   return {
     theta: a.theta + dTheta * t,
     phi: MathUtils.lerp(a.phi, b.phi, t),
-    radius: MathUtils.lerp(a.radius, b.radius, t),
+    radius: framed / halfTan(fov),
     y: MathUtils.lerp(a.y, b.y, t),
+    fov,
   };
 }
 

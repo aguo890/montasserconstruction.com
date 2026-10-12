@@ -13,9 +13,13 @@ const T = {
   note: { en: 'AI 3D impression from site photos · illustrative', ar: 'تصور ثلاثي الأبعاد مولّد بالذكاء الاصطناعي من صور الموقع · توضيحي' },
   fallback: { en: '3D model unavailable · showing the photo', ar: 'النموذج ثلاثي الأبعاد غير متاح · تظهر الصورة' },
   loading: { en: 'Loading 3D model', ar: 'جارٍ تحميل النموذج' },
-  view: { en: 'View', ar: 'طريقة العرض' },
-  drawing: { en: 'Drawing', ar: 'الرسم' },
-  built: { en: 'Built', ar: 'المبنى' },
+  stages: { en: 'Build stages', ar: 'مراحل البناء' },
+  stageNames: [
+    { en: 'Plan', ar: 'المخطط' },
+    { en: 'Drawing', ar: 'الرسم' },
+    { en: 'Print', ar: 'الطباعة' },
+    { en: 'Built', ar: 'المبنى' },
+  ],
   reset: { en: 'Reset view', ar: 'إعادة ضبط العرض' },
   hint: { en: 'Drag to rotate', ar: 'اسحب للتدوير' },
   scenes: { en: 'Scenes', ar: 'المشاهد' },
@@ -29,6 +33,14 @@ const T = {
   },
 };
 
+/** Labels that change with state (the view swaps them). */
+export const LABELS = {
+  fullscreen: { en: 'Full screen', ar: 'ملء الشاشة' },
+  exitFullscreen: { en: 'Exit full screen', ar: 'إنهاء ملء الشاشة' },
+  hideDetails: { en: 'Hide details', ar: 'إخفاء التفاصيل' },
+  showDetails: { en: 'Show details', ar: 'إظهار التفاصيل' },
+};
+
 const NOT_STATED = 'Not stated';
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const lang = () => (document.documentElement.lang === 'ar' ? 'ar' : 'en');
@@ -40,6 +52,11 @@ const bi = (p) => (typeof p === 'string' ? esc(p) : `<span class="en">${esc(p.en
 const ariaAttrs = (p) => `aria-label="${esc(p[lang()])}" data-aria-en="${esc(p.en)}" data-aria-ar="${esc(p.ar)}"`;
 
 const altAttrs = (p) => `alt="${esc(p[lang()])}" data-alt-en="${esc(p.en)}" data-alt-ar="${esc(p.ar)}"`;
+
+/** Plan · Drawing · Print · Built: each button fills with its stage's progress (--p, set by the view). */
+function tickerHtml() {
+  return T.stageNames.map((name, i) => `<button type="button" data-site-build="${i}" aria-pressed="${i === T.stageNames.length - 1}"><span class="site__tick">${bi(name)}</span></button>`).join('');
+}
 
 export function frameHtml() {
   return `
@@ -61,12 +78,13 @@ export function frameHtml() {
         <div class="site__gl" data-site-gl tabindex="0"></div>
         <figure class="site__photo" data-site-photo><span class="site__ph"><img alt="" decoding="async"></span></figure>
         <p class="site__load" data-site-load hidden>${bi(T.loading)} <b data-site-pct></b></p>
-        <div class="site__ctl" data-site-ctl hidden>
-          <div class="site__seg" role="group" ${ariaAttrs(T.view)}>
-            <button type="button" data-site-mode="drawing" aria-pressed="false">${bi(T.drawing)}</button>
-            <button type="button" data-site-mode="built" aria-pressed="true">${bi(T.built)}</button>
+        <div class="site__ctl" data-site-ctl>
+          <div class="site__ctl3d" data-site-ctl3d hidden>
+            <div class="site__seg site__ticker" role="group" ${ariaAttrs(T.stages)}>${tickerHtml()}</div>
+            <button type="button" class="site__btn site__reset" data-site-reset ${ariaAttrs(T.reset)}>${icon('reset')}</button>
           </div>
-          <button type="button" class="site__btn site__reset" data-site-reset ${ariaAttrs(T.reset)}>${icon('reset')}</button>
+          <button type="button" class="site__btn site__fs" data-site-fs aria-pressed="false" ${ariaAttrs(LABELS.fullscreen)}><span class="site__fs-on">${icon('expand')}</span><span class="site__fs-off">${icon('shrink')}</span></button>
+          <button type="button" class="site__btn site__details" data-site-details aria-controls="site-info" aria-expanded="true" ${ariaAttrs(LABELS.hideDetails)}>${icon('panel')}</button>
         </div>
         <p class="site__hint" data-site-hint hidden aria-hidden="true">${bi(T.hint)}</p>
         <div class="site__foot">
@@ -74,7 +92,7 @@ export function frameHtml() {
           <p class="site__note"><span data-site-note>${bi(T.note)}</span><span class="site__fallback" data-site-fallback hidden>${bi(T.fallback)}</span></p>
         </div>
       </div>
-      <aside class="site__info" data-site-info></aside>
+      <aside class="site__info" id="site-info" data-site-info></aside>
     </div>
   </div>`;
 }

@@ -15,7 +15,22 @@
         },
         "yaw": 165,
         "bytes": 1920432,
-        "tris": 150000
+        "tris": 150000,
+        "hq": "models/hq/city-club-4.glb",
+        "hqBytes": 9561924,
+        "hqTris": 451240,
+        "bbox": {
+          "min": [
+            -0.501294,
+            -0.177513,
+            -0.501014
+          ],
+          "max": [
+            0.50119,
+            0.17423,
+            0.500001
+          ]
+        }
       },
       {
         "id": "city-club-2",
@@ -28,7 +43,22 @@
         },
         "yaw": 310,
         "bytes": 1600740,
-        "tris": 150000
+        "tris": 150000,
+        "hq": "models/hq/city-club-2.glb",
+        "hqBytes": 8010380,
+        "hqTris": 599961,
+        "bbox": {
+          "min": [
+            -0.410702,
+            -0.118635,
+            -0.499496
+          ],
+          "max": [
+            0.408894,
+            0.11769,
+            0.500977
+          ]
+        }
       },
       {
         "id": "city-club-5",
@@ -41,7 +71,22 @@
         },
         "yaw": 210,
         "bytes": 1995132,
-        "tris": 150000
+        "tris": 150000,
+        "hq": "models/hq/city-club-5.glb",
+        "hqBytes": 9528592,
+        "hqTris": 412641,
+        "bbox": {
+          "min": [
+            -0.501468,
+            -0.142093,
+            -0.490061
+          ],
+          "max": [
+            0.500968,
+            0.143185,
+            0.49304
+          ]
+        }
       }
     ],
     "matrouh-stadium": [
@@ -56,7 +101,22 @@
         },
         "yaw": 300,
         "bytes": 1897592,
-        "tris": 150000
+        "tris": 150000,
+        "hq": "models/hq/matrouh-stadium-1.glb",
+        "hqBytes": 9896016,
+        "hqTris": 599986,
+        "bbox": {
+          "min": [
+            -0.427299,
+            -0.166225,
+            -0.50089
+          ],
+          "max": [
+            0.425236,
+            0.166615,
+            0.500688
+          ]
+        }
       }
     ],
     "matrouh-university": [
@@ -71,7 +131,22 @@
         },
         "yaw": 35,
         "bytes": 3003272,
-        "tris": 150000
+        "tris": 150000,
+        "hq": "models/hq/matrouh-university-2.glb",
+        "hqBytes": 12290972,
+        "hqTris": 686488,
+        "bbox": {
+          "min": [
+            -0.501272,
+            -0.098808,
+            -0.501536
+          ],
+          "max": [
+            0.501092,
+            0.094375,
+            0.501318
+          ]
+        }
       },
       {
         "id": "matrouh-university-1",
@@ -84,7 +159,22 @@
         },
         "yaw": 305,
         "bytes": 2095064,
-        "tris": 149998
+        "tris": 149998,
+        "hq": "models/hq/matrouh-university-1.glb",
+        "hqBytes": 9807436,
+        "hqTris": 499911,
+        "bbox": {
+          "min": [
+            -0.501587,
+            -0.202551,
+            -0.500678
+          ],
+          "max": [
+            0.500916,
+            0.203046,
+            0.500969
+          ]
+        }
       },
       {
         "id": "matrouh-university-3",
@@ -97,7 +187,22 @@
         },
         "yaw": 80,
         "bytes": 1789216,
-        "tris": 150000
+        "tris": 150000,
+        "hq": "models/hq/matrouh-university-3.glb",
+        "hqBytes": 9673668,
+        "hqTris": 600014,
+        "bbox": {
+          "min": [
+            -0.378381,
+            -0.169134,
+            -0.50098
+          ],
+          "max": [
+            0.379739,
+            0.16966,
+            0.501212
+          ]
+        }
       }
     ],
     "el-morsi-abu-el-abbas-mosque-square": [
@@ -112,7 +217,22 @@
         },
         "yaw": 210,
         "bytes": 1969792,
-        "tris": 150000
+        "tris": 150000,
+        "hq": "models/hq/el-morsi-abu-el-abbas-mosque-square-1.glb",
+        "hqBytes": 8687924,
+        "hqTris": 599980,
+        "bbox": {
+          "min": [
+            -0.311477,
+            -0.193707,
+            -0.501896
+          ],
+          "max": [
+            0.311633,
+            0.194948,
+            0.501418
+          ]
+        }
       }
     ],
     "coral-beach-village": [
@@ -127,7 +247,22 @@
         },
         "yaw": 310,
         "bytes": 2496912,
-        "tris": 149999
+        "tris": 149999,
+        "hq": "models/hq/coral-beach-village-2.glb",
+        "hqBytes": 9981884,
+        "hqTris": 488125,
+        "bbox": {
+          "min": [
+            -0.436881,
+            -0.160601,
+            -0.501682
+          ],
+          "max": [
+            0.43463,
+            0.161689,
+            0.499784
+          ]
+        }
       }
     ],
     "faragello-cake-factory": [
@@ -142,7 +277,22 @@
         },
         "yaw": 30,
         "bytes": 1731968,
-        "tris": 150000
+        "tris": 150000,
+        "hq": "models/hq/faragello-cake-factory-1.glb",
+        "hqBytes": 9358324,
+        "hqTris": 600049,
+        "bbox": {
+          "min": [
+            -0.496627,
+            -0.08527,
+            -0.487943
+          ],
+          "max": [
+            0.500561,
+            0.085274,
+            0.490986
+          ]
+        }
       }
     ],
     "beyti-almarai-factory": [
@@ -157,7 +307,22 @@
         },
         "yaw": 0,
         "bytes": 2190200,
-        "tris": 149999
+        "tris": 149999,
+        "hq": "models/hq/beyti-almarai-factory-1.glb",
+        "hqBytes": 9570400,
+        "hqTris": 509393,
+        "bbox": {
+          "min": [
+            -0.500976,
+            -0.312808,
+            -0.25528
+          ],
+          "max": [
+            0.500948,
+            0.313108,
+            0.255421
+          ]
+        }
       }
     ],
     "suez-stadium": [
@@ -172,7 +337,22 @@
         },
         "yaw": 165,
         "bytes": 2890388,
-        "tris": 149999
+        "tris": 149999,
+        "hq": "models/hq/suez-stadium-2.glb",
+        "hqBytes": 14540984,
+        "hqTris": 762793,
+        "bbox": {
+          "min": [
+            -0.500051,
+            -0.218848,
+            -0.500772
+          ],
+          "max": [
+            0.499411,
+            0.218774,
+            0.500524
+          ]
+        }
       }
     ],
     "aswan-stadium": [
@@ -187,7 +367,22 @@
         },
         "yaw": 0,
         "bytes": 2341528,
-        "tris": 149999
+        "tris": 149999,
+        "hq": "models/hq/aswan-stadium-3.glb",
+        "hqBytes": 9567768,
+        "hqTris": 491147,
+        "bbox": {
+          "min": [
+            -0.498881,
+            -0.331029,
+            -0.500951
+          ],
+          "max": [
+            0.499805,
+            0.330643,
+            0.501037
+          ]
+        }
       }
     ],
     "el-hadaf-training-center": [
@@ -202,7 +397,22 @@
         },
         "yaw": 90,
         "bytes": 2060368,
-        "tris": 149999
+        "tris": 149999,
+        "hq": "models/hq/el-hadaf-training-center-2.glb",
+        "hqBytes": 9758580,
+        "hqTris": 496424,
+        "bbox": {
+          "min": [
+            -0.500362,
+            -0.15691,
+            -0.495451
+          ],
+          "max": [
+            0.495842,
+            0.154566,
+            0.494917
+          ]
+        }
       }
     ],
     "tivoli-dome": [
@@ -217,7 +427,22 @@
         },
         "yaw": 80,
         "bytes": 2524140,
-        "tris": 149999
+        "tris": 149999,
+        "hq": "models/hq/tivoli-dome-1.glb",
+        "hqBytes": 9490972,
+        "hqTris": 512897,
+        "bbox": {
+          "min": [
+            -0.498485,
+            -0.161483,
+            -0.480192
+          ],
+          "max": [
+            0.500618,
+            0.160534,
+            0.474271
+          ]
+        }
       }
     ],
     "movenpick-airport-hotel": [
@@ -232,7 +457,22 @@
         },
         "yaw": 125,
         "bytes": 2224916,
-        "tris": 149999
+        "tris": 149999,
+        "hq": "models/hq/movenpick-airport-hotel-1.glb",
+        "hqBytes": 9585484,
+        "hqTris": 498956,
+        "bbox": {
+          "min": [
+            -0.49559,
+            -0.177002,
+            -0.501073
+          ],
+          "max": [
+            0.496634,
+            0.176366,
+            0.500814
+          ]
+        }
       },
       {
         "id": "movenpick-airport-hotel-2",
@@ -245,7 +485,22 @@
         },
         "yaw": 65,
         "bytes": 2139092,
-        "tris": 149999
+        "tris": 149999,
+        "hq": "models/hq/movenpick-airport-hotel-2.glb",
+        "hqBytes": 9886044,
+        "hqTris": 412995,
+        "bbox": {
+          "min": [
+            -0.498655,
+            -0.14911,
+            -0.400251
+          ],
+          "max": [
+            0.499524,
+            0.126427,
+            0.396628
+          ]
+        }
       }
     ],
     "la-plage-beach": [
@@ -260,7 +515,22 @@
         },
         "yaw": 135,
         "bytes": 2570928,
-        "tris": 149999
+        "tris": 149999,
+        "hq": "models/hq/la-plage-beach-2.glb",
+        "hqBytes": 12222592,
+        "hqTris": 600507,
+        "bbox": {
+          "min": [
+            -0.49919,
+            -0.134352,
+            -0.501239
+          ],
+          "max": [
+            0.501066,
+            0.134549,
+            0.500362
+          ]
+        }
       },
       {
         "id": "la-plage-beach-1",
@@ -273,7 +543,22 @@
         },
         "yaw": 215,
         "bytes": 2053336,
-        "tris": 109998
+        "tris": 109998,
+        "hq": "models/hq/la-plage-beach-1.glb",
+        "hqBytes": 13242860,
+        "hqTris": 648381,
+        "bbox": {
+          "min": [
+            -0.487835,
+            -0.264543,
+            -0.501511
+          ],
+          "max": [
+            0.485942,
+            0.262079,
+            0.501152
+          ]
+        }
       }
     ],
     "egyptian-rowing-club": [
@@ -288,7 +573,22 @@
         },
         "yaw": 305,
         "bytes": 2832104,
-        "tris": 149999
+        "tris": 149999,
+        "hq": "models/hq/egyptian-rowing-club-1.glb",
+        "hqBytes": 9592892,
+        "hqTris": 470921,
+        "bbox": {
+          "min": [
+            -0.351999,
+            -0.222741,
+            -0.500533
+          ],
+          "max": [
+            0.360901,
+            0.223608,
+            0.500049
+          ]
+        }
       },
       {
         "id": "egyptian-rowing-club-2",
@@ -301,7 +601,22 @@
         },
         "yaw": 90,
         "bytes": 2092768,
-        "tris": 149999
+        "tris": 149999,
+        "hq": "models/hq/egyptian-rowing-club-2.glb",
+        "hqBytes": 9526368,
+        "hqTris": 476603,
+        "bbox": {
+          "min": [
+            -0.420776,
+            -0.314742,
+            -0.50117
+          ],
+          "max": [
+            0.436192,
+            0.314797,
+            0.500875
+          ]
+        }
       }
     ],
     "banque-misr": [
@@ -316,7 +631,22 @@
         },
         "yaw": 45,
         "bytes": 2328496,
-        "tris": 149999
+        "tris": 149999,
+        "hq": "models/hq/banque-misr-5.glb",
+        "hqBytes": 9119512,
+        "hqTris": 375924,
+        "bbox": {
+          "min": [
+            -0.501238,
+            -0.26876,
+            -0.409928
+          ],
+          "max": [
+            0.500636,
+            0.267965,
+            0.425613
+          ]
+        }
       }
     ],
     "abbassia-mental-health-hospital": [
@@ -331,7 +661,22 @@
         },
         "yaw": 155,
         "bytes": 2171640,
-        "tris": 149999
+        "tris": 149999,
+        "hq": "models/hq/abbassia-mental-health-hospital-1.glb",
+        "hqBytes": 9556256,
+        "hqTris": 448665,
+        "bbox": {
+          "min": [
+            -0.322511,
+            -0.223068,
+            -0.501104
+          ],
+          "max": [
+            0.322368,
+            0.253759,
+            0.500638
+          ]
+        }
       },
       {
         "id": "abbassia-mental-health-hospital-2",
@@ -344,7 +689,22 @@
         },
         "yaw": 0,
         "bytes": 1825012,
-        "tris": 150000
+        "tris": 150000,
+        "hq": "models/hq/abbassia-mental-health-hospital-2.glb",
+        "hqBytes": 9402476,
+        "hqTris": 398291,
+        "bbox": {
+          "min": [
+            -0.501293,
+            -0.305623,
+            -0.449126
+          ],
+          "max": [
+            0.500973,
+            0.306437,
+            0.431768
+          ]
+        }
       }
     ]
   }
